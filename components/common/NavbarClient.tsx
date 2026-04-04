@@ -101,7 +101,7 @@ const handleLogout = async () => {
   return (
     <header
       className={cn(
-        "w-full sm:top-10 top-3 left-0 flex items-center justify-between px-10 lg:px-30 py-2 text-black z-50 fixed transition-transform duration-500 ease-in-out",
+        " sm:top-10 top-3 left-3 md:left-20 flex items-center bg-[#FFFFFF] rounded-[15px] px-10 mx-auto shadow-sm w-11/12 justify-between lg:px-30 py-2 text-black z-50 fixed transition-transform duration-500 ease-in-out",
         isVisible ? "translate-y-0" : "-translate-y-30"
       )}
     >
@@ -110,7 +110,7 @@ const handleLogout = async () => {
         <div className="w-30 md:w-40 ">
           <Link href="/">
             <Image
-              src="/imgs/pharmapluse.png"
+              src="/imgs/Repairos.png"
               alt="logo"
               width={175.78}
               height={34.13}
@@ -122,7 +122,7 @@ const handleLogout = async () => {
 
       {/* Desktop Navigation */}
       <div className="max-lg:hidden">
-        <nav className="h-13.25 bg-[#FFFFFF] flex justify-center items-center rounded-[15px] px-10 shadow-sm">
+        <nav className="h-13.25  flex justify-center items-center ">
           <ul className="flex items-center gap-8">
             {links.map((link, i) => (
               <li key={link.label}>
@@ -209,7 +209,7 @@ const handleLogout = async () => {
         <Sheet>
           <SheetTrigger asChild>
             <button>
-              <Menu color="white" width={25} height={25} />
+              <Menu color="black" width={25} height={25} />
             </button>
           </SheetTrigger>
 
