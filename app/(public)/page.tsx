@@ -12,14 +12,19 @@ import React from 'react';
 const page = async() => {
 
     return (
-        <div>
-           <Banner/>
-           <Highlights/>
+       
+          <div className="relative">
+      <div className="z-1 sticky top-0 isolate">
+        <Banner />
+      </div>
+      <div className="relative z-10 bg-[#F4FBFF]">
+       <Highlights/>
            <MostPopular/>
            <Sticky></Sticky>
            <Features/>
            <FaqSection></FaqSection>
-        </div>
+      </div>
+    </div>
     );
 };
 
