@@ -2,32 +2,65 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-type Medicine = {
+type Service = {
+  id: string;
   name: string;
   price: number;
   img: string;
-  id: string;
 };
 
-const medicines: Medicine[] = [
-  { id: "1", name: "Napa Rapid", price: 50, img: "/medicines/Napa-Rapid.jpg" },
-  { id: "2", name: "Histacin", price: 15, img: "/medicines/histacin.jpg" },
-  { id: "3", name: "Naproxen 250mg", price: 60, img: "/medicines/naproxen.jpg" },
-  { id: "4", name: "Paracetamol 500mg", price: 25, img: "/medicines/paracetamol.jpg" },
-  { id: "5", name: "Vitamin C Plusp", price: 120, img: "/medicines/vitamin-c.jpg" },
-  { id: "6", name: "B-Complex Forte", price: 70, img: "/medicines/b-complex.png" },
+const services: Service[] = [
+  {
+    id: "1",
+    name: "Electrician Service",
+    price: 500,
+    img: "/services/ElectricianService .webp",
+  },
+  {
+    id: "2",
+    name: "Plumbing Service",
+    price: 700,
+    img: "/services/PlumbingService.jpg",
+  },
+  {
+    id: "3",
+    name: "AC Repair",
+    price: 1200,
+    img: "/services/ACRepair.jpg",
+  },
+  {
+    id: "4",
+    name: "Home Cleaning",
+    price: 900,
+    img: "/services/HomeCleaning.webp",
+  },
+  {
+    id: "5",
+    name: "WiFi Technician",
+    price: 600,
+    img: "/services/WiFiTechnician.jpeg",
+  },
+  {
+    id: "6",
+    name: "Painting Service",
+    price: 1500,
+    img: "/services/PaintingService.jpg",
+  },
 ];
 
-export default function MedicinesSlider() {
+export default function ServicesSlider() {
   const trackRef = useRef<HTMLDivElement>(null);
+
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [visible, setVisible] = useState(1);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 1;
+
     if (window.innerWidth >= 1024) return 3;
     if (window.innerWidth >= 768) return 2;
     return 1;
@@ -35,85 +68,108 @@ export default function MedicinesSlider() {
 
   useEffect(() => {
     const updateVisible = () => setVisible(getVisibleCount());
+
     updateVisible();
     window.addEventListener("resize", updateVisible);
+
     return () => window.removeEventListener("resize", updateVisible);
   }, []);
 
   const goTo = (i: number) => {
     const el = trackRef.current;
     if (!el) return;
+
     const card = el.querySelector<HTMLElement>("[data-card]");
     if (!card) return;
-    const step = card.offsetWidth + 24; // gap-6
-    el.scrollTo({ left: i * step, behavior: "smooth" });
+
+    const step = card.offsetWidth + 12;
+
+    el.scrollTo({
+      left: i * step,
+      behavior: "smooth",
+    });
   };
 
   const scroll = (dir: "left" | "right") => {
     const next =
       dir === "left"
         ? Math.max(0, index - visible)
-        : (index + visible) % medicines.length;
+        : (index + visible) % services.length;
+
     goTo(next);
   };
 
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
+
     let ticking = false;
+
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const card = el.querySelector<HTMLElement>("[data-card]");
-          if (card) setIndex(Math.round(el.scrollLeft / (card.offsetWidth + 24)));
+
+          if (card) {
+            setIndex(Math.round(el.scrollLeft / (card.offsetWidth + 12)));
+          }
+
           ticking = false;
         });
+
         ticking = true;
       }
     };
+
     el.addEventListener("scroll", onScroll, { passive: true });
+
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     if (paused) return;
+
     const id = setInterval(() => {
-      const next = (index + visible) % medicines.length;
+      const next = (index + visible) % services.length;
       goTo(next);
-    }, 2000);
+    }, 2500);
+
     return () => clearInterval(id);
   }, [index, paused, visible]);
 
   return (
-    <section className="mx-auto w-11/12 mt-10 rounded-[25px] bg-[#FFF7F2] py-6">
+    <section className="mx-auto mt-20 w-11/12 rounded-[25px] bg-[#F4FBFF] py-8 sm:py-10 lg:py-12">
       <div className="px-6 sm:px-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <h2 className="text-[25px] text-[#FF7A1A] sm:text-[35px] md:text-[45px] leading-tight text-balance font-neue-haas-grotesk-display-pro font-medium">
-            Most Popular Medicines
+        {/* Header */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <h2 className="max-w-[12ch] text-balance font-neue-haas-grotesk-display-pro text-[28px] leading-tight font-medium text-[#00aeff] sm:text-[38px] md:text-[48px]">
+            Most Popular Home Services
           </h2>
-          <p className="text-slate-700 max-w-[38ch] text-sm sm:text-base text-left md:text-right">
-            Browse our most popular medicines and easily order online to get them delivered to your doorstep.
+
+          <p className="max-w-[42ch] text-left text-sm leading-7 text-slate-600 sm:text-base md:text-right">
+            Discover trusted home service providers for electrical work,
+            plumbing, AC repair, cleaning, and more — all in one place with
+            Repairo.
           </p>
         </div>
 
-        {/* Arrows */}
-        <div className="flex items-center justify-end mt-4 gap-2">
-        <button
-  aria-label="Previous"
-  onClick={() => scroll("left")}
-  className="rounded-full backdrop-blur p-2 text-[#FF7A1A] hover:bg-[#FF7A1A]/15 transition"
->
-  <ChevronLeft className="h-4 w-4" />
-</button>
+        {/* Navigation */}
+        <div className="mt-5 flex items-center justify-end gap-3">
+          <button
+            aria-label="Previous"
+            onClick={() => scroll("left")}
+            className="rounded-full border border-[#00aeff]/20 p-2.5 text-[#00aeff] transition hover:bg-[#00aeff]/10"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
 
-<button
-  aria-label="Next"
-  onClick={() => scroll("right")}
-  className="rounded-full backdrop-blur p-2 text-[#FF7A1A] hover:bg-[#FF7A1A]/15 transition"
->
-  <ChevronRight className="h-4 w-4" />
-</button>
-
+          <button
+            aria-label="Next"
+            onClick={() => scroll("right")}
+            className="rounded-full border border-[#00aeff]/20 p-2.5 text-[#00aeff] transition hover:bg-[#00aeff]/10"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
 
         {/* Slider */}
@@ -121,44 +177,57 @@ export default function MedicinesSlider() {
           ref={trackRef}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
-          className="mt-5 flex gap-3 overflow-x-auto pb-2 pt-1 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none]"
+          className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none]"
         >
-          <style>{`div::-webkit-scrollbar{display:none}`}</style>
+          <style>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
 
-          {medicines.map((m, i) => (
-               <article
-                                  key={`${m.name}-${i}`}
-                            data-card
-                            className="group relative shrink-0 overflow-hidden rounded-[22px] snap-start
-lg:w-113.75 md:w-75.5 w-72.5 h-50 sm:h-65 md:h-65 lg:h-65
- hover:ring-[#FF7A1A]/60 transition-all"
+          {services.map((service, i) => (
+            <article
+              key={service.id}
+              data-card
+              className="group relative h-65 w-72.5 shrink-0 snap-start overflow-hidden rounded-[24px] transition-all hover:ring-2 hover:ring-[#00aeff]/60 sm:h-80 sm:w-85 lg:h-90 lg:w-113.75"
+            >
+              <Image
+                src={service.img}
+                alt={service.name}
+                fill
+                priority={i < 3}
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
-                        >
-                            <Image
-                               src={m.img}
-                alt={m.name}
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                                priority={i < 3}
-                            />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent" />
 
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent z-1" />
+              {/* Price */}
+              <div className="absolute left-4 top-4 z-10">
+                <span className="rounded-full bg-white/90 px-4 py-1.5 text-lg font-semibold text-[#00aeff] shadow-sm backdrop-blur sm:text-xl">
+                  ৳{service.price}
+                </span>
+              </div>
 
-                            {/* Icons */}
-                            <div className="absolute left-3 top-3 z-10 flex items-center gap-2">
-                                <span className="text-xl sm:text-2xl font-medium opacity-95 text-[#FF7A1A] font-satoshi">${m.price}</span>
-                            </div>
+              {/* Content */}
+              <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6">
+                <h3 className="text-xl font-semibold text-white sm:text-2xl">
+                  {service.name}
+                </h3>
 
-                            {/* Border + Gradient */}
-                            <div className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-white/20" />
-                            <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/55 to-transparent" />
+                <p className="mt-2 max-w-[28ch] text-sm leading-6 text-white/80 sm:text-base">
+                  Trusted professionals available for quick and reliable service
+                  at your doorstep.
+                </p>
 
-                            {/* Bottom Text */}
-                            <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-5 text-white">
-                                <h3 className="text-xl sm:text-2xl font-medium tracking-wide font-satoshi">{m.name}</h3>
-                            </div>
-                        </article>
+                <Link
+                  href="/services"
+                  className="mt-4 inline-flex w-fit items-center rounded-full bg-[#00aeff] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#0097de] sm:text-base"
+                >
+                  Book Now
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </div>
