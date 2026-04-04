@@ -52,7 +52,7 @@ const Hero = () => {
         
 
     <Link href="/cart" className="">
-      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#FF833B] text-white rounded-full hover:bg-[#e67533] transition-colors">
+      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#5ce1e6] text-white rounded-full hover:bg-[#e67533] transition-colors">
         <ArrowLeft size={20} />
         <span>Back to Cart</span>
       </button>

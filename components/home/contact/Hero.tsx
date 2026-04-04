@@ -112,7 +112,7 @@ export default function Banner() {
 
         {/* Right form */}
         <motion.div
-          className="bg-white/95 backdrop-blur-sm  rounded-[22px] border-4 border-[#FF833B] p-5 sm:p-6 md:p-8 w-full sm:w-100 shadow-lg"
+          className="bg-white/95 backdrop-blur-sm  rounded-[22px] border-4 border-[#5ce1e6] p-5 sm:p-6 md:p-8 w-full sm:w-100 shadow-lg"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -121,7 +121,7 @@ export default function Banner() {
           <form className="space-y-4 " onSubmit={handleSubmit}>
             {/* Name */}
             <div>
-              <label className="block text-sm font-semibold text-[#FF833B] mb-1">
+              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
                 NAME
               </label>
               <input
@@ -130,13 +130,13 @@ export default function Banner() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#FF833B] outline-none"
+                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-semibold text-[#FF833B] mb-1">
+              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
                 EMAIL
               </label>
               <input
@@ -145,13 +145,13 @@ export default function Banner() {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#FF833B] outline-none"
+                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-semibold text-[#FF833B] mb-1">
+              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
                 MESSAGE
               </label>
               <textarea
@@ -160,14 +160,14 @@ export default function Banner() {
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
-               className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#FF833B] outline-none"
+               className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
               ></textarea>
             </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-[#FF833B] hover:bg-[#cc510a] text-white font-semibold py-2.5 rounded-[15px] transition"
+              className="w-full bg-[#5ce1e6] hover:bg-[#cc510a] text-white font-semibold py-2.5 rounded-[15px] transition"
             >
               Submit
             </button>

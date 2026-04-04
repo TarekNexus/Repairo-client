@@ -63,7 +63,7 @@ export default function Features() {
 
     return (
         <motion.section
-            className="mx-auto w-11/12 mt-10 rounded-[15px] bg-[#FF833B] py-8 sm:py-10 md:py-12"
+            className="mx-auto w-11/12 mt-10 rounded-[15px] bg-[#5ce1e6] py-8 sm:py-10 md:py-12"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -92,12 +92,12 @@ export default function Features() {
                             variants={cardVariants}
                         >
                             {/* Icon */}
-                            <div className="w-8 h-8 text-white bg-[#FF833B] rounded-full flex items-center justify-center text-sm">
+                            <div className="w-8 h-8 text-white bg-[#5ce1e6] rounded-full flex items-center justify-center text-sm">
                                 {card.icon}
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-[#FF833B] text-lg sm:text-xl font-medium leading-tight font-satoshi">
+                            <h3 className="text-[#5ce1e6] text-lg sm:text-xl font-medium leading-tight font-satoshi">
                                 {card.title}
                             </h3>
 

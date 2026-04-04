@@ -78,12 +78,12 @@ Wellness You Can Rely On
           className="flex flex-col sm:flex-row gap-4 justify-center font-satoshi"
         >
           <Link href="/shop">
-            <button className="bg-[#FF833B] hover:bg-white hover:text-black transition-all ease-in-out duration-300 text-white font-medium px-8.75 py-3 rounded-2xl  cursor-pointer">
+            <button className="bg-[#5ce1e6] hover:bg-white hover:text-black transition-all ease-in-out duration-300 text-white font-medium px-8.75 py-3 rounded-2xl  cursor-pointer">
              Shop Now
             </button>
           </Link>
           <Link href="/contact">
-            <button className="border border-[#FF833B] text-white hover:bg-[#FF833B]/10 font-medium px-8.75 py-3 rounded-2xl transition cursor-pointer">
+            <button className="border border-[#5ce1e6] text-white hover:bg-[#5ce1e6]/10 font-medium px-8.75 py-3 rounded-2xl transition cursor-pointer">
                Contact Us
             </button>
           </Link>

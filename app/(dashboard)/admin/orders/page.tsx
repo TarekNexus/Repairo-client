@@ -128,14 +128,14 @@ export default function OrdersPage() {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
-      <h1 className="lg:text-3xl text-2xl font-bold text-[#FF833B] mb-4">
+      <h1 className="lg:text-3xl text-2xl font-bold text-[#5ce1e6] mb-4">
         Orders Management
       </h1>
 
       <div className="w-full overflow-x-auto rounded-lg">
         <Table className="w-full whitespace-nowrap border">
           <TableHeader>
-            <TableRow className="bg-[#FF833B] text-white">
+            <TableRow className="bg-[#5ce1e6] text-white">
               <TableHead>No</TableHead>
               <TableHead>Order ID</TableHead>
               <TableHead>Customer</TableHead>
@@ -187,7 +187,7 @@ export default function OrdersPage() {
                 </TableCell>
                 <TableCell>{new Date(order.createdAt).toLocaleString()}</TableCell>
                 <TableCell>
-                  <Button size="sm" className="bg-[#FF833B]" onClick={() => setSelectedOrder(order)}>
+                  <Button size="sm" className="bg-[#5ce1e6]" onClick={() => setSelectedOrder(order)}>
                     View Details
                   </Button>
                 </TableCell>

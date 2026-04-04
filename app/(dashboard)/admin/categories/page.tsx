@@ -102,7 +102,7 @@ export default function CategoryPage() {
 
   return (
    <div className="p-4 space-y-6">
-  <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#FF833B] mb-4">Category Management</h1>
+  <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">Category Management</h1>
 
   {/* Add category */}
   <Card>
@@ -113,7 +113,7 @@ export default function CategoryPage() {
         onChange={(e) => setNewCategory(e.target.value)}
         className="flex-1 font-satoshi"
       />
-      <Button onClick={handleCreate} className="gap-2 bg-[#FF833B] font-satoshi w-full sm:w-auto">
+      <Button onClick={handleCreate} className="gap-2 bg-[#5ce1e6] font-satoshi w-full sm:w-auto">
         <Plus size={16} /> Add
       </Button>
     </CardContent>
@@ -165,7 +165,7 @@ export default function CategoryPage() {
                     <>
                       <Button
                         size="sm"
-                        className="bg-[#FF833B]"
+                        className="bg-[#5ce1e6]"
                         onClick={() => handleUpdate(cat.id)}
                       >
                         Save

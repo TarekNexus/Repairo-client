@@ -243,7 +243,7 @@ export default function ServicesPage() {
     <div className="p-4 sm:p-6 lg:p-8 w-full max-w-full relative">
       <Toaster position="top-right" />
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 sm:mb-5">
-        <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-bold text-[#FF833B] mb-4">
+        <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-bold text-[#5ce1e6] mb-4">
           Services Management
         </h1>
         <Button
@@ -251,7 +251,7 @@ export default function ServicesPage() {
             resetForm();
             setIsAddDialogOpen(true);
           }}
-          className="bg-[#FF833B] hover:bg-[#ff6f1f] w-full sm:w-auto"
+          className="bg-[#5ce1e6] hover:bg-[#ff6f1f] w-full sm:w-auto"
         >
           <Plus className="mr-2 h-4 w-4" /> Add Service
         </Button>
@@ -265,7 +265,7 @@ export default function ServicesPage() {
         <div className="w-full overflow-x-auto rounded-lg shadow-sm">
           <Table className="min-w-250 w-full">
             <TableHeader>
-              <TableRow className="bg-[#FF833B] text-white">
+              <TableRow className="bg-[#5ce1e6] text-white">
                 <TableHead>No</TableHead>
                 <TableHead>Title</TableHead>
                 <TableHead>Category</TableHead>
@@ -449,7 +449,7 @@ export default function ServicesPage() {
               <Button
                 onClick={isAddDialogOpen ? handleAddService : handleEditService}
                 disabled={submitting || uploading}
-                className="bg-[#FF833B] hover:bg-[#ff6f1f] ml-2"
+                className="bg-[#5ce1e6] hover:bg-[#ff6f1f] ml-2"
               >
                 {submitting
                   ? isAddDialogOpen

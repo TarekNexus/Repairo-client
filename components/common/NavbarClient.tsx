@@ -131,7 +131,7 @@ const handleLogout = async () => {
     onClick={() => handleLinkClick(i)}
     className={cn(
       "relative text-[15.63px] leading-[150%] tracking-[7%] text-black font-medium font-satoshi",
-      "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#FF833B] after:transition-all after:duration-300 after:ease-in-out",
+      "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#5ce1e6] after:transition-all after:duration-300 after:ease-in-out",
       "hover:after:w-full"
     )}
   >
@@ -158,7 +158,7 @@ const handleLogout = async () => {
                 <button className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white bg-[#0000004D] hover:bg-[#00000066] transition-all duration-300 cursor-pointer">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={user.image} alt={user.name} />
-                    <AvatarFallback className="bg-[#FF833B] text-black text-xs font-semibold">
+                    <AvatarFallback className="bg-[#5ce1e6] text-black text-xs font-semibold">
                       {getInitials(user.name)}
                     </AvatarFallback>
                   </Avatar>
@@ -197,7 +197,7 @@ const handleLogout = async () => {
             <button className="pl-4 pr-1.5 py-1.25 rounded-full cursor-pointer border border-white text-white bg-[#0000004D] hover:bg-[#00000066] transition-all duration-300 ease-in-out">
               <span className="text-[15.63px] leading-[150%] tracking-[7%] text-white font-medium flex items-center justify-center gap-3">
                 Login
-                <ArrowUpRight className="w-6 h-6 bg-[#FF833B] text-black rounded-full p-1" />
+                <ArrowUpRight className="w-6 h-6 bg-[#5ce1e6] text-black rounded-full p-1" />
               </span>
             </button>
           </Link>
@@ -226,7 +226,7 @@ const handleLogout = async () => {
               <div className="flex items-center gap-3 py-4 border-b border-white/20 mt-4">
                 <Avatar className="h-12 w-12">
                   <AvatarImage src={user.image} alt={user.name} />
-                  <AvatarFallback className="bg-[#FF833B] text-black font-semibold">
+                  <AvatarFallback className="bg-[#5ce1e6] text-black font-semibold">
                     {getInitials(user.name)}
                   </AvatarFallback>
                 </Avatar>
@@ -247,7 +247,7 @@ const handleLogout = async () => {
                         onClick={() => handleLinkClick(i)}
                         className={cn(
                           "relative text-base leading-[150%] tracking-[7%] font-bold pl-4 after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1 after:size-1.5 after:rounded-full after:bg-transparent after:transition-all after:duration-300 after:ease-in-out",
-                          selectedIndex === i && "after:bg-[#FF833B]"
+                          selectedIndex === i && "after:bg-[#5ce1e6]"
                         )}
                       >
                         {link.label}
@@ -290,7 +290,7 @@ const handleLogout = async () => {
                     <button className="w-full h-11 rounded-[15px] border border-white mt-10 hover:bg-white/10 transition-all">
                       <span className="text-[15.63px] leading-[150%] tracking-[7%] text-white font-medium flex items-center justify-center gap-3">
                         Login
-                        <ArrowUpRight className="w-6 h-6 bg-[#FF833B] text-black rounded-full p-1" />
+                        <ArrowUpRight className="w-6 h-6 bg-[#5ce1e6] text-black rounded-full p-1" />
                       </span>
                     </button>
                   </Link>

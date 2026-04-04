@@ -121,7 +121,7 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative my-20 z-10 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#FF833B]">
+      <div className="relative my-20 z-10 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
         <div className="flex justify-center mb-1">
           <Image
             src="/imgs/smallLogo.png"
@@ -131,7 +131,7 @@ export default function RegisterPage() {
           />
         </div>
 
-        <h1 className="lg:text-3xl md:lg:text-3xl text-2xl text-center font-satoshi font-bold text-[#FF833B]">
+        <h1 className="lg:text-3xl md:lg:text-3xl text-2xl text-center font-satoshi font-bold text-[#5ce1e6]">
           Create Account
         </h1>
         <p className="text-center text-gray-600 font-satoshi mb-3">
@@ -147,7 +147,7 @@ export default function RegisterPage() {
               placeholder="John Doe"
               disabled={isSubmitting}
               {...register("name", { required: "Name is required" })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#FF833B] ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#FF833B]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.name && (
               <span className="text-red-500 text-sm">
@@ -164,7 +164,7 @@ export default function RegisterPage() {
               placeholder="john.doe@example.com"
               disabled={isSubmitting}
               {...register("email", { required: "Email is required" })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#FF833B] ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#FF833B]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.email && (
               <span className="text-red-500 text-sm">
@@ -187,7 +187,7 @@ export default function RegisterPage() {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#FF833B] ${errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#FF833B]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.password && (
               <span className="text-red-500 text-sm">
@@ -206,10 +206,10 @@ export default function RegisterPage() {
               accept="image/*"
               onChange={handleFileChange}
               disabled={uploading || isSubmitting}
-              className="border border-gray-300 rounded-lg font-satoshi px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF833B] focus:border-[#FF833B]"
+              className="border border-gray-300 rounded-lg font-satoshi px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5ce1e6] focus:border-[#5ce1e6]"
             />
             {uploading && (
-              <span className="text-[#FF833B] mt-1">Uploading...</span>
+              <span className="text-[#5ce1e6] mt-1">Uploading...</span>
             )}
             {preview && (
               <div className="flex justify-center">
@@ -228,7 +228,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={isSubmitting || uploading}
-            className="w-full bg-[#FF833B] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70"
+            className="w-full bg-[#5ce1e6] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70"
           >
             {isSubmitting ? "Registering..." : "Register"}
           </button>
@@ -257,7 +257,7 @@ export default function RegisterPage() {
           Already have an account?{" "}
           <a
             href="/login"
-            className="text-[#FF833B] font-semibold hover:underline"
+            className="text-[#5ce1e6] font-semibold hover:underline"
           >
             Login
           </a>

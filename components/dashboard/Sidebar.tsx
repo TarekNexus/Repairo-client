@@ -80,15 +80,15 @@ const handleLogout = async () => {
   }
 };
   return (
-    <aside className="w-16 md:w-56 border-r bg-[#FF833B] p-2 md:p-4 flex flex-col justify-between transition-all">
+    <aside className="w-16 md:w-56 border-r bg-[#5ce1e6] p-2 md:p-4 flex flex-col justify-between transition-all">
       {/* Top: Logo & Navigation */}
       <div>
         {/* Logo */}
         <div className="mb-6 flex items-center justify-center md:justify-start">
           <Link href={getDashboardLink(role)}>
             <Image
-              src="/imgs/smallLogo.png"
-              alt="Pharmaplus"
+              src="/imgs/small.png"
+              alt="Repairo"
               width={40}
               height={40}
               className="md:hidden"
@@ -97,8 +97,8 @@ const handleLogout = async () => {
 
           <Link href={getDashboardLink(role)}>
             <Image
-              src="/imgs/pharmapluse.png"
-              alt="Pharmaplus"
+              src="/imgs/Repairo.png"
+              alt="Repairo"
               width={150}
               height={40}
               className="hidden md:block"
@@ -125,12 +125,12 @@ const handleLogout = async () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-1 px-2 md:px-3 py-1 rounded-full border border-white bg-white hover:bg-[#00000066] transition-all duration-300 cursor-pointer">
-              <Avatar className="md:h-10 md:w-10 border-2 border-[#FF833B]">
+              <Avatar className="md:h-10 md:w-10 border-2 border-[#5ce1e6]">
                 <AvatarImage
                   src={user.image || "/imgs/defaultProfile.png"}
                   alt="profile"
                 />
-                <AvatarFallback className="bg-[#FF833B] text-black text-xs font-semibold">
+                <AvatarFallback className="bg-[#5ce1e6] text-black text-xs font-semibold">
                   {getInitials(user.name)}
                 </AvatarFallback>
               </Avatar>

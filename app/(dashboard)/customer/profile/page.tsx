@@ -24,7 +24,7 @@ export default function ProfilePage() {
 
   const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME!;
   const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!;
-  const brandColor = "#FF833B";
+  const brandColor = "#5ce1e6";
 
   // Fetch profile
   useEffect(() => {
@@ -109,7 +109,7 @@ export default function ProfilePage() {
   return (
     <div className=" mx-auto px-4">
       <Toaster position="top-right" />
-      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#FF833B] mb-4">
+      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
         My Profile
       </h1>
 

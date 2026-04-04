@@ -137,7 +137,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 w-full max-w-full">
-      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#FF833B] mb-4">
+      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
         Dashboard Overview
       </h1>
 
@@ -147,7 +147,7 @@ export default function AdminDashboard() {
           {stats.map((stat) => (
             <Card
               key={stat.title}
-              className=" border-2 border-[#FF833B]  shadow-md hover:shadow-lg transition"
+              className=" border-2 border-[#5ce1e6]  shadow-md hover:shadow-lg transition"
             >
               <CardHeader className="flex items-center gap-4">
                 {stat.icon}
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-3xl font-bold font-satoshi text-[#FF833B]">{stat.value}</p>
+                <p className="text-3xl font-bold font-satoshi text-[#5ce1e6]">{stat.value}</p>
               </CardContent>
             </Card>
           ))}
@@ -164,7 +164,7 @@ export default function AdminDashboard() {
       </ScrollArea>
 
      <div className="bg-white shadow-md rounded-xl p-2 md:p-5">
-  <h2 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#FF833B] mb-4">
+  <h2 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
     Orders Overview
   </h2>
 
@@ -174,7 +174,7 @@ export default function AdminDashboard() {
       {/* gradient using your brand color */}
       <defs>
         <linearGradient id="ordersGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FF833B" stopOpacity={0.9}/>
+          <stop offset="0%" stopColor="#5ce1e6" stopOpacity={0.9}/>
           <stop offset="50%" stopColor="#FFB38A" stopOpacity={0.6}/>
           <stop offset="100%" stopColor="#FFE5D6" stopOpacity={0.2}/>
         </linearGradient>
@@ -188,10 +188,10 @@ export default function AdminDashboard() {
       <Line
         type="monotone"
         dataKey="orders"
-        stroke="#FF833B"
+        stroke="#5ce1e6"
         strokeWidth={3}
         fill="url(#ordersGradient)"
-        dot={{ r: 4, fill: "#FF833B" }}
+        dot={{ r: 4, fill: "#5ce1e6" }}
         activeDot={{ r: 7 }}
       />
     </LineChart>

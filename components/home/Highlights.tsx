@@ -48,7 +48,7 @@ export default function Highlights() {
         transition={{ duration: 0.8 }}
       >
         {/* Heading */}
-        <h2 className="text-4xl sm:text-5xl font-semibold leading-tight text-[#FF833B]">
+        <h2 className="text-4xl sm:text-5xl font-semibold leading-tight text-[#5ce1e6]">
           Your Health,
           Our Priority
         </h2>
@@ -70,7 +70,7 @@ export default function Highlights() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
           >
-            <div className="text-[48px] leading-none font-medium text-[#FF833B]">
+            <div className="text-[48px] leading-none font-medium text-[#5ce1e6]">
               <CountUp
                 start={0}
                 end={parseFloat(s.value)}

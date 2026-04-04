@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4 text-center md:text-left">
               <div className="flex md:items-center gap-3 justify-start">
                 <div className=" w-8.5 h-8.5 border-2 border-[#F1BB78] flex items-center justify-center rounded-[10px]">
-                  <FaLocationDot className="w-4 h-4 text-[#FF833B]" />
+                  <FaLocationDot className="w-4 h-4 text-[#5ce1e6]" />
                 </div>
                 <span className="md:text-lg text-base  font-inter  text-[#F7F2E9]">
                  123/4 Muhammadpur, Dhaka 1207
@@ -47,7 +47,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3 justify-start">
                 <div className=" w-8.5 border-2 border-[#F1BB78] h-8.5 flex items-center justify-center rounded-[10px]">
-                  <IoMdMail className="w-4 h-4 text-[#FF833B]" />
+                  <IoMdMail className="w-4 h-4 text-[#5ce1e6]" />
                 </div>
                 <span className="text-lg font-inter  text-[#F7F2E9]">
                   support@pharmaplus.com
@@ -56,7 +56,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3 justify-start">
                 <div className=" w-8.5 border-2 border-[#F1BB78] h-8.5 flex items-center justify-center rounded-[10px]">
-                  <FaPhone className="w-4 h-4 text-[#FF833B]" />
+                  <FaPhone className="w-4 h-4 text-[#5ce1e6]" />
                 </div>
                 <span className="text-lg font-inter  text-[#F7F2E9]">+880 1234 567890</span>
               </div>
@@ -90,7 +90,7 @@ export default function Footer() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="border-2 border-[#F1BB78] rounded-[10px] w-12 h-12 sm:w-12.5 sm:h-12.5 flex items-center justify-center cursor-pointer"
                 >
-                  <FaFacebookF className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF833B]" />
+                  <FaFacebookF className="w-5 h-5 sm:w-6 sm:h-6 text-[#5ce1e6]" />
                 </motion.div>
 
                 <motion.div
@@ -98,7 +98,7 @@ export default function Footer() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="border-2 border-[#F1BB78] rounded-[10px] w-12 h-12 sm:w-12.5 sm:h-12.5 flex items-center justify-center cursor-pointer"
                 >
-                  <PiInstagramLogoFill className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF833B]" />
+                  <PiInstagramLogoFill className="w-5 h-5 sm:w-6 sm:h-6 text-[#5ce1e6]" />
                 </motion.div>
               </div>
             </div>

@@ -83,8 +83,8 @@ export default function Card({ medicines, categories }: Props) {
             }}
             className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
               activeTab === tab
-                ? "bg-[#FF833B] text-white"
-                : "bg-[#FFFBF5] border border-[#211F1A] text-[#21201B] hover:border-[#FF833B]"
+                ? "bg-[#5ce1e6] text-white"
+                : "bg-[#FFFBF5] border border-[#211F1A] text-[#21201B] hover:border-[#5ce1e6]"
             }`}
           >
             {tab}
@@ -166,7 +166,7 @@ export default function Card({ medicines, categories }: Props) {
                   <p className="text-sm text-gray-600 mb-2 line-clamp-2">{med.description}</p>
                   <p className="text-sm text-gray-600 mb-4">{med.Manufacturer}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-[#FF833B] font-semibold">${med.price}</span>
+                    <span className="text-[#5ce1e6] font-semibold">${med.price}</span>
                     <span className="text-gray-500 font-medium">Stock: {med.stock}</span>
                   </div>
                 </div>
@@ -198,7 +198,7 @@ export default function Card({ medicines, categories }: Props) {
               onClick={() => goToPage(page)}
               className={`w-8 h-8 flex items-center justify-center rounded-md text-sm ${
                 currentPage === page
-                  ? "bg-[#FF833B] text-white"
+                  ? "bg-[#5ce1e6] text-white"
                   : "bg-[#FFF8F3] text-gray-800 hover:bg-[#FFE4D0]"
               }`}
             >

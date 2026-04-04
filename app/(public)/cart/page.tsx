@@ -76,7 +76,7 @@ if (!mounted) return null;
 />
       {/* Header */}
       <div className="text-center mb-12 px-4 sm:px-6 md:px-8">
-        <h1 className="text-4xl font-satoshi sm:text-5xl lg:text-5xl font-bold mb-4 text-[#FF833B]">
+        <h1 className="text-4xl font-satoshi sm:text-5xl lg:text-5xl font-bold mb-4 text-[#5ce1e6]">
           Your Pharmacy Cart
         </h1>
         <p className="text-gray-800 font-satoshi text-base sm:text-lg md:text-xl">
@@ -90,7 +90,7 @@ if (!mounted) return null;
           {/* Selected Items */}
           <div className="bg-[#FFE6D9] rounded-lg px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           
-            <span className="text-[#FF833B] text-sm sm:text-base">
+            <span className="text-[#5ce1e6] text-sm sm:text-base">
               {cartItems.length} items selected
             </span>
           </div>
@@ -98,10 +98,10 @@ if (!mounted) return null;
           {/* Empty Cart */}
           {cartItems.length === 0 && (
             <div className="bg-[#FFE6D9] rounded-lg px-6 py-16 text-center">
-              <ShoppingCart className="mx-auto mb-4 text-[#FF833B]" size={48} />
+              <ShoppingCart className="mx-auto mb-4 text-[#5ce1e6]" size={48} />
               <p className="text-gray-600 text-sm sm:text-base">
                 Your cart is empty.{" "}
-                <Link href="/shop" className="text-[#FF833B] underline">
+                <Link href="/shop" className="text-[#5ce1e6] underline">
                   Browse medicines
                 </Link>
               </p>
@@ -124,7 +124,7 @@ if (!mounted) return null;
                   className="rounded-lg object-cover"
                 />
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#FF833B]">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#5ce1e6]">
                     {item.title}
                   </h3>
                   <p className="text-gray-800 text-sm sm:text-base">
@@ -156,7 +156,7 @@ if (!mounted) return null;
 
                 <Trash2
                   onClick={() => removeItem(item.id)}
-                  className="cursor-pointer text-[#FF833B] hover:text-[#e67533] transition"
+                  className="cursor-pointer text-[#5ce1e6] hover:text-[#e67533] transition"
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ if (!mounted) return null;
         {/* Order Summary */}
         <div className="lg:col-span-1">
           <div className="bg-[#FFE6D9] rounded-lg p-6 sticky top-24">
-            <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-[#FF833B]">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-[#5ce1e6]">
               Order Summary
             </h2>
 
@@ -183,14 +183,14 @@ if (!mounted) return null;
             </div>
 
             <div className="border-t pt-4 mb-6 border-[#FFB88C]">
-              <div className="flex justify-between text-base sm:text-lg lg:text-xl font-semibold text-[#FF833B]">
+              <div className="flex justify-between text-base sm:text-lg lg:text-xl font-semibold text-[#5ce1e6]">
                 <span>TOTAL</span>
                 <span>৳ {total.toFixed(2)}</span>
               </div>
             </div>
 
             <Link href="/checkout">
-              <button className="w-full bg-linear-to-r from-[#FF833B] to-[#FF9E4F] text-white py-3 sm:py-4 rounded-lg hover:scale-105 transition text-sm sm:text-base">
+              <button className="w-full bg-linear-to-r from-[#5ce1e6] to-[#FF9E4F] text-white py-3 sm:py-4 rounded-lg hover:scale-105 transition text-sm sm:text-base">
                 Proceed to Checkout
               </button>
             </Link>

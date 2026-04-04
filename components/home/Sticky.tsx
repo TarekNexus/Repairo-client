@@ -73,7 +73,7 @@ export default function Sticky() {
 
               <div className="relative h-full p-4 sm:p-6 md:p-9 flex flex-col justify-center text-white">
                 {/* Tag pill */}
-                <span className="flex items-center justify-center text-[8px] sm:text-[10px] md:text-sm tracking-[0.15em] font-semibold rounded-full bg-[#FF833B]   px-2 sm:px-3 py-1 w-60 sm:w-100 h-7 sm:h-8.5 mb-2 sm:mb-4 text-center">
+                <span className="flex items-center justify-center text-[8px] sm:text-[10px] md:text-sm tracking-[0.15em] font-semibold rounded-full bg-[#5ce1e6]   px-2 sm:px-3 py-1 w-60 sm:w-100 h-7 sm:h-8.5 mb-2 sm:mb-4 text-center">
                   {card.tag}
                 </span>
 

@@ -82,12 +82,12 @@ const handleGoogleLogin = async () => {
       </div>
 
       {/* Card */}
-      <div className="relative z-10 my-20 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#FF833B]">
+      <div className="relative z-10 my-20 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
         <div className="flex justify-center mb-4">
           <Image src="/imgs/smallLogo.png" alt="Pharmaplus" width={60} height={60} />
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-gilroy-bold text-[#FF833B] mb-2 text-center">
+        <h1 className="text-3xl md:text-4xl font-gilroy-bold text-[#5ce1e6] mb-2 text-center">
           Pharmaplus Login
         </h1>
         <p className="text-center text-gray-600 font-satoshi mb-6">
@@ -103,8 +103,8 @@ const handleGoogleLogin = async () => {
               placeholder="you@example.com"
               disabled={isSubmitting}
               {...register("email", { required: "Email is required" })}
-              className={`border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:border-[#FF833B] ${
-                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#FF833B]"
+              className={`border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${
+                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"
               }`}
             />
             {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email.message}</span>}
@@ -122,7 +122,7 @@ const handleGoogleLogin = async () => {
           minLength: { value: 6, message: "Password must be at least 6 characters" },
         })}
         className={`border px-4 py-2 rounded-lg w-full focus:outline-none focus:ring-2 pr-10 ${
-          errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#FF833B]"
+          errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"
         }`}
       />
       {/* Show/Hide Password Icon */}
@@ -141,7 +141,7 @@ const handleGoogleLogin = async () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#FF833B] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full bg-[#5ce1e6] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isSubmitting && (
               <svg
@@ -191,7 +191,7 @@ const handleGoogleLogin = async () => {
         {/* Register Link */}
         <p className="text-center text-gray-500 mt-6 font-inter">
           Don’t have an account?{" "}
-          <a href="/register" className="text-[#FF833B] font-semibold hover:underline">
+          <a href="/register" className="text-[#5ce1e6] font-semibold hover:underline">
             Register
           </a>
         </p>

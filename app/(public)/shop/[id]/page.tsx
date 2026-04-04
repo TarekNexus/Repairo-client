@@ -121,7 +121,7 @@ const Page = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 bg-[#f7dccd] rounded-3xl p-5 sm:p-8 shadow-xl border">
           {/* IMAGE */}
           <div className="relative group">
-            <div className="relative h-64 sm:h-80 md:h-96 lg:h-105 rounded-2xl overflow-hidden border-2 border-[#FF833B]">
+            <div className="relative h-64 sm:h-80 md:h-96 lg:h-105 rounded-2xl overflow-hidden border-2 border-[#5ce1e6]">
               <Image
                 src={medicine.image}
                 alt={medicine.name}
@@ -129,7 +129,7 @@ const Page = () => {
                 className="object-cover group-hover:scale-105 transition duration-500"
               />
 
-              <div className="absolute top-3 left-3 bg-[#FF833B] text-white text-xs sm:text-sm px-3 py-1 rounded-full shadow">
+              <div className="absolute top-3 left-3 bg-[#5ce1e6] text-white text-xs sm:text-sm px-3 py-1 rounded-full shadow">
                 In Stock: {medicine.stock}
               </div>
             </div>
@@ -141,7 +141,7 @@ const Page = () => {
               <span className="text-xl md:text-3xl">Name:</span> {medicine.name}
             </h1>
 
-            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#FF833B] mb-4">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#5ce1e6] mb-4">
               <span className="text-black text-xl md:text-3xl">Price:</span> ৳{" "}
               {medicine.price}
             </p>
@@ -164,7 +164,7 @@ const Page = () => {
 
             <button
               onClick={handleAddToCart}
-              className="w-full md:w-fit px-6 py-3 rounded-xl bg-[#FF833B] text-white font-semibold text-lg shadow-md hover:bg-[#e9722f] hover:scale-105 transition"
+              className="w-full md:w-fit px-6 py-3 rounded-xl bg-[#5ce1e6] text-white font-semibold text-lg shadow-md hover:bg-[#e9722f] hover:scale-105 transition"
             >
               Add to Cart
             </button>
@@ -205,7 +205,7 @@ const Page = () => {
           <button
             onClick={handleSubmitReview} // Calls reviewService.addReview
             disabled={reviewLoading}
-            className="bg-[#FF833B] text-white px-6 py-2 rounded-lg hover:bg-[#e76f2c]"
+            className="bg-[#5ce1e6] text-white px-6 py-2 rounded-lg hover:bg-[#e76f2c]"
           >
             {reviewLoading ? "Submitting..." : "Submit Review"}
           </button>
@@ -222,12 +222,12 @@ const Page = () => {
                 .map((r) => (
                   <div
                     key={r.id}
-                    className="bg-white shadow-lg rounded-3xl border-2 border-[#FF833B] p-6 hover:shadow-xl transition relative "
+                    className="bg-white shadow-lg rounded-3xl border-2 border-[#5ce1e6] p-6 hover:shadow-xl transition relative "
                   >
                     {/* USER INFO */}
                     <div className="flex flex-col md:flex-row md:items-center justify-between mb-">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#FF833B]/20 flex items-center justify-center font-bold text-[#FF833B] text-lg">
+                        <div className="w-12 h-12 rounded-full bg-[#5ce1e6]/20 flex items-center justify-center font-bold text-[#5ce1e6] text-lg">
                           {r.user?.name?.charAt(0) || "U"}
                         </div>
                         <div>
@@ -239,7 +239,7 @@ const Page = () => {
                       </div>
 
                       {/* RATING */}
-                      <div className="flex items-center gap-1 mt-2 bg-[#FF833B]/10 text-[#FF833B] px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="flex items-center gap-1 mt-2 bg-[#5ce1e6]/10 text-[#5ce1e6] px-3 py-1 rounded-full text-sm font-semibold">
                         {Array.from({ length: r.rating }, (_, i) => (
                           <span key={i}>★</span>
                         ))}
@@ -285,7 +285,7 @@ const Page = () => {
                   onClick={() => setCurrentPage(i + 1)}
                   className={`px-3 py-1 rounded ${
                     currentPage === i + 1
-                      ? "bg-[#FF833B] text-white"
+                      ? "bg-[#5ce1e6] text-white"
                       : "bg-gray-200 hover:bg-gray-300"
                   }`}
                 >

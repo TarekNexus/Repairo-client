@@ -5,7 +5,7 @@ export default function Loader() {
     <Oval
       height={50}
       width={50}
-      color="#FF833B"
+      color="#5ce1e6"
       wrapperStyle={{}}
       wrapperClass=""
       visible={true}

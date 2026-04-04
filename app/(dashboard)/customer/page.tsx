@@ -66,7 +66,7 @@ export default function OrdersPage() {
   const [cancelingOrderId, setCancelingOrderId] = useState<string | null>(null);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
-  const brandColor = "#FF833B";
+  const brandColor = "#5ce1e6";
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -143,7 +143,7 @@ export default function OrdersPage() {
 
   return (
     <div className="px-4 py-4">
-      <h1 className="lg:text-3xl md:text-3xl text-2xl font-bold text-[#FF833B] mb-4">
+      <h1 className="lg:text-3xl md:text-3xl text-2xl font-bold text-[#5ce1e6] mb-4">
         My Bookings
       </h1>
 

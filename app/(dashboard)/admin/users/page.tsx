@@ -102,7 +102,7 @@ export default function AdminUsersPage() {
 
   return (
     <div className="p-2 space-y-6">
-      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#FF833B] mb-4">Admin User Management</h1>
+      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">Admin User Management</h1>
 
       {/* search */}
       <div className="flex gap-4">
