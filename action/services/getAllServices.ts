@@ -5,7 +5,7 @@ import { servicesService } from "@/services/services.service";
 import { cookies } from "next/headers";
 
 export const getAllServices = async () => {
-  const cookieStore = cookies(); // server-side cookies
+  const cookieStore =await cookies(); // server-side cookies
 
   try {
     const res = await servicesService.getAllservices(cookieStore);

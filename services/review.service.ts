@@ -36,7 +36,7 @@ export const reviewService = {
     return result.data;
   },
 
-  getReviewsByMedicine: async (cookieStore: any, medicineId: string): Promise<Review[]> => {
+  getReviewsByService: async (cookieStore: any, medicineId: string): Promise<Review[]> => {
     const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/customer/reviews/${medicineId}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" ,

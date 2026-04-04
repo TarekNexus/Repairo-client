@@ -1,19 +1,19 @@
-
-
 import { getAllCategories } from "@/action/services/getAllCategories";
-import { getAllMedicines } from "@/action/services/getAllServices";
+import { getAllServices } from "@/action/services/getAllServices";
 import Card from "@/components/shop/Card";
 import Hero from "@/components/shop/Hero";
 
 export default async function Page() {
-
-const {data}=await getAllMedicines()
+  const servicesRes = await getAllServices();
   const categories = await getAllCategories();
-    return (
-        <div>
-            <Hero></Hero>
-              <Card medicines={data} categories={categories} />
-           
-        </div>
-    );
+ console.log("text",servicesRes);
+  // make sure we pass the array of services, not the whole response object
+  const services = servicesRes?.data || [];
+
+  return (
+    <div>
+      <Hero />
+      <Card services={services} categories={categories} />
+    </div>
+  );
 }

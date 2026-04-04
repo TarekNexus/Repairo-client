@@ -1,13 +1,14 @@
+
 "use server";
 
 
 import {  reviewService } from "@/services/review.service";
 import { cookies } from "next/headers";
 
-export  const  getReviewsByMedicine = async (medicineId: string) => {
+export  const  getReviewsByService = async (serviceId: string) => {
     const cookieStore = await cookies();
     try {
-      const res = await reviewService.getReviewsByMedicine( cookieStore, medicineId);
+      const res = await reviewService.getReviewsByService( cookieStore, serviceId);
       console.log(res);
       return res;
     } catch (err) {
