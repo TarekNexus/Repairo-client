@@ -3,111 +3,114 @@
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const faqs = [
   {
-    question: "What areas does PharmaPlus deliver to?",
+    question: "What types of home services can I book on Repairo?",
     answer:
-      "PharmaPlus delivers medicines and healthcare products across major cities and surrounding areas, with fast and reliable home delivery options.",
+      "You can book a wide range of home services including electricians, plumbers, AC mechanics, home cleaners, WiFi technicians, painters, and more.",
   },
   {
-    question: "How long does delivery usually take?",
+    question: "How do I book a service on Repairo?",
     answer:
-      "Standard delivery typically takes 24–48 hours. Express delivery options may be available depending on your location and product availability.",
+      "Simply browse the available services, choose the one you need, select a provider, enter your address and preferred date, then confirm your booking online.",
   },
   {
-    question: "Do you sell prescription medicines?",
+    question: "Can I pay online for my booking?",
     answer:
-      "Yes. We provide prescription medicines in compliance with regulations. A valid prescription from a licensed doctor is required for certain medications.",
+      "Yes. Repairo supports secure online payments through Stripe and SSLCommerz, so you can complete your booking quickly and safely.",
   },
   {
-    question: "Are all medicines genuine and safe?",
+    question: "How can I track the status of my booking?",
     answer:
-      "Absolutely. All medicines sold on PharmaPlus are sourced from trusted manufacturers and authorized distributors to ensure quality and safety.",
+      "You can track your booking from your dashboard. Booking statuses update in real time from Pending to Accepted, On The Way, Completed, or Cancelled.",
   },
   {
-    question: "Can I consult a pharmacist before ordering?",
+    question: "Are the service providers verified?",
     answer:
-      "Yes. Our expert pharmacists are available to assist you with medicine usage, dosage guidance, and general health-related questions.",
+      "Absolutely. Every provider on Repairo is verified before joining the platform to ensure you receive safe, trusted, and high-quality service.",
   },
 ];
-
 
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const toggle = (index: number) =>
+  const toggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
-    <section className="w-11/12 mx-auto py-4 sm:py-5 md:py-7 bg-white">
-      <div className="px-4 sm:px-6 md:px-10 lg:px-16">
-        {/* Top section */}
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6 mb-10">
-         <h2 className="text-2xl sm:text-3xl md:text-4xl font-satoshi lg:text-5xl font-semibold text-[#FF7A1A] leading-tight">
-  Your Health Questions, <br className="hidden sm:block" /> Clearly Answered
-</h2>
+    <section className="mx-auto w-11/12 bg-white py-6 sm:py-8 md:py-10">
+      <div className="">
+        {/* Header */}
+        <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <h2 className="text-2xl sm:text-3xl md:text-[56px] text-[#00aeff] font-satoshi font-medium  leading-tight text-center sm:text-left">
+            Home Service Questions,
+            <br className="hidden sm:block" />
+            Clearly Answered
+          </h2>
 
-           <div>
-        <p className="text-[#191919] mb-6 lg:max-w-87.5 lg:text-justify font-satoshi text-lg mx-auto">
-  Find answers to the most common questions about PharmaPlus services.
-  Need more help?{" "}
-  <a href="/contact" className="text-[#FF7A1A] hover:underline">
-    Contact our support team
-  </a>.
-</p>
+          <div>
+            <p className="mx-auto mb-6 max-w-140 text-lg font-satoshi text-[#191919] lg:text-justify">
+              Find answers to the most common questions about Repairo and home
+              service booking. Need more help?{" "}
+              <Link
+                href="/contact"
+                className="font-medium text-[#00aeff] transition hover:underline"
+              >
+                Contact our support team
+              </Link>
+              .
+            </p>
           </div>
         </div>
 
-        {/* FAQ list */}
-<motion.div
-  initial={{ opacity: 0, y: -40 }}          // hidden state
-  whileInView={{ opacity: 1, y: 0 }}        // animate when in view
-  viewport={{ once: true, amount: 0.2 }}    // trigger only once, when 20% visible
-  transition={{ duration: 0.8, ease: "easeInOut" }}
-  className="space-y-4"
->
-  {faqs.map((faq, i) => (
-    <div
-      key={i}
-      className="box-border bg-white border-2 border-white rounded-2xl shadow-[0px_2px_6px_rgba(255,122,26,0.35)]
-hover:shadow-[0px_4px_12px_rgba(255,122,26,0.5)] transition-all"
-    >
-      <button
-        onClick={() => toggle(i)}
-        className="w-full font-satoshi flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 text-left text-[#0A244D] font-medium text-base sm:text-[17px] focus:outline-none"
-      >
-        {faq.question}
-        {activeIndex === i ? (
-          <X className="w-5 h-5 shrink-0 text-[#FF7A1A]" />
-        ) : (
-          <Plus className="w-5 h-5 shrink-0 text-[#FF7A1A]" />
-        )}
-      </button>
+        {/* FAQ List */}
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="space-y-4"
+        >
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="box-border rounded-2xl border-2 border-white bg-white shadow-[0px_2px_6px_rgba(0,174,255,0.35)] transition-all hover:shadow-[0px_4px_12px_rgba(0,174,255,0.5)]"
+            >
+              <button
+                onClick={() => toggle(i)}
+                className="flex w-full items-center justify-between px-4 py-4 text-left font-satoshi text-base font-medium text-[#0A244D] focus:outline-none sm:px-6 sm:text-[17px]"
+              >
+                <span>{faq.question}</span>
 
-      {/* Animated Answer */}
-      <AnimatePresence initial={false}>
-        {activeIndex === i && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 font-satoshi sm:px-6 pb-4 sm:pb-5 text-gray-600 text-sm sm:text-[15px] leading-relaxed">
-              {faq.answer}
+                {activeIndex === i ? (
+                  <X className="h-5 w-5 shrink-0 text-[#00aeff]" />
+                ) : (
+                  <Plus className="h-5 w-5 shrink-0 text-[#00aeff]" />
+                )}
+              </button>
+
+              <AnimatePresence initial={false}>
+                {activeIndex === i && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-4 pb-4 font-satoshi text-sm leading-relaxed text-gray-600 sm:px-6 sm:pb-5 sm:text-[15px]">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  ))}
-</motion.div>
-
-
-
+          ))}
+        </motion.div>
       </div>
     </section>
   );

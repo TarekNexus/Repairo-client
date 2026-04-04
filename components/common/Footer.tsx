@@ -1,185 +1,122 @@
 "use client";
-import Marquee from "react-fast-marquee";
-import {
-  ArrowUp,
-} from "lucide-react";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
-import { FaPhone } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa";
-import { PiInstagramLogoFill } from "react-icons/pi";
+
+import React from "react";
 import Image from "next/image";
+import { PhoneCall } from "lucide-react";
+import { FaFacebook, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div
-      className="bg-cover md:w-11/12 mx-auto  bg-[#211F1A] md:rounded-3xl md:mb-2  bg-center py-16 px-0 md:px-2"
-    >
-      <footer className="text-white">
-        <div className="lg:px-8 md:px-7 px-4 mx-auto flex flex-col justify-around gap-2 text-sm">
-          {/* Logo Top */}
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <Image
-              src="/imgs/pharmapluse.png"
-              alt="Pharma Plus"
-              width={180}
-              height={100}
-              className="mb-3"
-            />
+    <footer className="bg-[#0A0A0A] md:w-11/12 mx-auto px-6 md:px-8 lg:px-20 py-10 text-white rounded-tl-[50px] rounded-tr-[50px]">
+      {/* Main Footer Content */}
+      <div className="flex flex-col md:flex-row justify-between gap-10 md:gap-14 pb-8 border-b border-[#767676]">
+        {/* Left Section */}
+        <div className="lg:w-1/2 flex flex-col items-center md:items-start space-y-8">
+          {/* Logo */}
+          <Image
+            src="/imgs/Repairos.png"
+            alt="Repairo Logo"
+            width={104}
+            height={64}
+            className="w-54 h-12"
+          />
 
-            <p className="text-base font-inter text-[#FFFFFF] text-center md:text-left">Your trusted partner for quality healthcare — <br className="hidden md:block" /> Pharma Plus delivers authentic medical supplies to your doorstep.</p>
-          </div>
+          <div className="flex flex-col gap-4 items-center md:items-start">
+            {/* Heading */}
+            <h2 className="text-3xl font-medium font-geist text-center md:text-left text-[#FFFFFF]">
+              Need a Reliable Home Service?
+            </h2>
 
-          {/* Middle Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-6 justify-between items-center md:items-start border-t border-[#FFFFFF33] gap-8 md:gap-0">
-            {/* Left Section - Contact */}
-            <div className="flex flex-col gap-4 text-center md:text-left">
-              <div className="flex md:items-center gap-3 justify-start">
-                <div className=" w-8.5 h-8.5 border-2 border-[#F1BB78] flex items-center justify-center rounded-[10px]">
-                  <FaLocationDot className="w-4 h-4 text-[#5ce1e6]" />
-                </div>
-                <span className="md:text-lg text-base  font-inter  text-[#F7F2E9]">
-                 123/4 Muhammadpur, Dhaka 1207
-                </span>
-              </div>
+            {/* Description */}
+            <p className="text-[#999999] text-center md:text-left text-base font-geist leading-relaxed">
+              Repairo helps you book trusted electricians, plumbers, cleaners, and more, right at your doorstep. Fast, reliable, and easy to use.
+            </p>
 
-              <div className="flex items-center gap-3 justify-start">
-                <div className=" w-8.5 border-2 border-[#F1BB78] h-8.5 flex items-center justify-center rounded-[10px]">
-                  <IoMdMail className="w-4 h-4 text-[#5ce1e6]" />
-                </div>
-                <span className="text-lg font-inter  text-[#F7F2E9]">
-                  support@pharmaplus.com
-                </span>
-              </div>
+            {/* Contact Info */}
+     
+            <p className="text-base font-geist">Contact: +880 1234 567 890</p>
+            <p className="text-base font-medium font-geist">
+              Location: 43 Borthwick St, Minto - 2566
+            </p>
 
-              <div className="flex items-center gap-3 justify-start">
-                <div className=" w-8.5 border-2 border-[#F1BB78] h-8.5 flex items-center justify-center rounded-[10px]">
-                  <FaPhone className="w-4 h-4 text-[#5ce1e6]" />
-                </div>
-                <span className="text-lg font-inter  text-[#F7F2E9]">+880 1234 567890</span>
-              </div>
-            </div>
-
-            {/* Center Section - Title, Quote, Social */}
-            <div className="flex flex-col items-center text-center px-4 sm:px-6 md:px-0">
-              {/* Title */}
-              <h2 className="text-[22px] sm:text-[27px] md:text-[30px] font-bold font-gilroy-regular mb-4">
-                Subscribe to Health Updates
-              </h2>
-
-              {/* Input + Button */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-2 w-full max-w-md">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-[#2B2A27] text-gray-300 text-sm sm:text-base font-inter px-4 py-3 rounded-xl focus:outline-none w-full sm:flex-1 border border-[#8888881A]"
-                />
-                <button
-                  className="bg-[#FF8736] hover:bg-[#FF944D] text-[#21201B] text-sm sm:text-base font-inter font-medium px-5 py-3 rounded-[6px] w-full sm:w-auto transition"
-                >
-                  Subscribe
+            {/* Buttons */}
+            <div className="flex gap-4 mt-4">
+              <Link href="#reserve">
+                <button className="bg-[#00aeff] hover:bg-[#008fcc] text-xs md:text-sm lg:text-base font-medium font-geist text-[#FFFFFF] px-4 py-3.5 rounded-[14px] flex items-center gap-1 transition-colors">
+                  <PhoneCall className="w-4 lg:w-5" />
+                  Book Now
                 </button>
-              </div>
-
-              {/* Social Icons */}
-              <div className="flex mt-6 gap-4 sm:gap-5">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="border-2 border-[#F1BB78] rounded-[10px] w-12 h-12 sm:w-12.5 sm:h-12.5 flex items-center justify-center cursor-pointer"
-                >
-                  <FaFacebookF className="w-5 h-5 sm:w-6 sm:h-6 text-[#5ce1e6]" />
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="border-2 border-[#F1BB78] rounded-[10px] w-12 h-12 sm:w-12.5 sm:h-12.5 flex items-center justify-center cursor-pointer"
-                >
-                  <PiInstagramLogoFill className="w-5 h-5 sm:w-6 sm:h-6 text-[#5ce1e6]" />
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Right Section - Links */}
-            <div className="order-3 md:col-span-2 lg:col-span-1 flex justify-center lg:justify-end text-center md:text-center lg:text-left mt-6 md:mt-0">
-              <div className="flex flex-col gap-2">
-                <div className="grid grid-cols-2 lg:grid-cols-1 text-left gap-2">
-                  {[
-                    { name: "Home", href: "/" },
-                    { name: "Shop", href: "/shop" },
-                    { name: "Contact", href: "/contact" },
-                  ].map((link) => (
-                    <Link key={link.name} href={link.href}>
-                      <motion.h1
-                        className="lg:text-[25px] md:text-[20px] font-gilroy-regular text-lg font-semibold text-white cursor-pointer"
-                        whileHover={{ scale: 1.05, x: 5 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 20,
-                        }}
-                      >
-                        {link.name}
-                      </motion.h1>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-[#FFFFFF33] pt-5"></div>
-
-          <section className="mx-auto mt-10  w-full ">
-            <Marquee gradient={false} speed={90} pauseOnHover={true}>
-              {/* Repeat blocks for smooth scroll */}
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="flex items-center whitespace-nowrap  mr-8"
-                >
-                  <h3 className="font-bold text-[14vw] leading-none font-inter mr-5 md:mr-10">PHARMA PLUS</h3>
-                </div>
-              ))}
-            </Marquee>
-          </section>
-
-          {/* Bottom Section */}
-          <div className="mt-10 border-t border-[#FFFFFF33] pt-5 flex flex-col md:flex-row items-center justify-between text-xs text-gray-200 gap-4">
-            {/* Left */}
-            <div className="flex-1 text-center md:text-left font-gilroy-regular">
-              <p><span className="text-white font-bold font-gilroy-regular">@2025 PHARMA PLUS.</span> All rights reserved</p>
-            </div>
-
-            {/* Center */}
-            <div className="flex-1 flex justify-center">
-              <motion.button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="rounded-full border px-4 py-2 flex items-center gap-2 text-white border-white"
-              >
-                <ArrowUp className="w-4 h-4" /> Back To Top
-              </motion.button>
-            </div>
-
-            {/* Right */}
-            <div className="flex-1 flex justify-center md:justify-end gap-4">
-              <Link href="/" className="underline text-[16px]">
-                Terms of Use
               </Link>
-              <span>|</span>
-              <Link href="/" className="underline text-[16px]">
-                Privacy Policy
+              <Link href="#services">
+                <button className="bg-[#707070] hover:bg-gray-600 text-xs md:text-sm lg:text-base font-medium font-geist text-[#FFFFFF] px-4 py-3.5 rounded-[14px] flex items-center gap-1 transition-colors">
+                  Our Services
+                </button>
               </Link>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Right Section */}
+        <div className="lg:w-1/2 flex flex-col items-center lg:items-end justify-between">
+          {/* Navigation Links */}
+          <div className="flex gap-16 mb-12">
+            <div className="space-y-5 text-center md:text-right">
+              <Link href="#faqs" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                FAQS
+              </Link>
+              <Link href="#blog" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                BLOGS
+              </Link>
+              <Link href="#contact" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                CONTACT
+              </Link>
+            </div>
+            <div className="space-y-5 text-center md:text-right">
+              <Link href="/" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                HOME
+              </Link>
+              <Link href="#services" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                SERVICES
+              </Link>
+              <Link href="#testimonials" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                TESTIMONIALS
+              </Link>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="text-right space-y-4">
+            <p className="text-[#FFFFFF] font-inter text-lg hidden md:block mb-4">Connect on</p>
+            <div className="flex gap-4">
+              <Link href="#twitter"><FaXTwitter size={30} className="text-[#00aeff]" /></Link>
+              <Link href="#linkedin"><FaLinkedin size={30} className="text-[#00aeff]" /></Link>
+              <Link href="#instagram"><RiInstagramFill size={30} className="text-[#00aeff]" /></Link>
+              <Link href="#facebook"><FaFacebook size={30} className="text-[#00aeff]" /></Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Footer */}
+      <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+        <p className="text-base font-geist text-[#999999]">
+          <Link href="https://www.repairo.com/" className="hover:text-white">
+            © 2025 Repairo.
+          </Link>{" "} All rights reserved
+        </p>
+        <div className="flex gap-8">
+          <Link href="#terms" className="text-base font-geist text-[#999999] hover:underline">
+            Terms & Conditions
+          </Link>
+          <Link href="#privacy" className="text-base font-geist text-[#999999] hover:underline">
+            Privacy Policy
+          </Link>
+        </div>
+      </div>
+    </footer>
   );
-}
+};
+
+export default Footer;
