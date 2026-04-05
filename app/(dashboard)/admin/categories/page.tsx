@@ -1,9 +1,7 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -75,7 +73,7 @@ export default function CategoryPage() {
       setEditingId(null);
       fetchCategories();
     } else {
-      Swal.fire("Error", "Update failed",  "error");
+      Swal.fire("Error", "Update failed", "error");
     }
   };
 
@@ -101,114 +99,118 @@ export default function CategoryPage() {
   };
 
   return (
-   <div className="p-4 space-y-6">
-  <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">Category Management</h1>
+    <div className="p-4 space-y-6">
+      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
+        Category Management
+      </h1>
 
-  {/* Add category */}
-  <Card>
-    <CardContent className="flex flex-col sm:flex-row gap-3 p-5">
-      <Input
-        placeholder="Enter category name..."
-        value={newCategory}
-        onChange={(e) => setNewCategory(e.target.value)}
-        className="flex-1 font-satoshi"
-      />
-      <Button onClick={handleCreate} className="gap-2 bg-[#5ce1e6] font-satoshi w-full sm:w-auto">
-        <Plus size={16} /> Add
-      </Button>
-    </CardContent>
-  </Card>
+      {/* Add category */}
+      <Card>
+        <CardContent className="flex flex-col sm:flex-row gap-3 p-5">
+          <Input
+            placeholder="Enter category name..."
+            value={newCategory}
+            onChange={(e) => setNewCategory(e.target.value)}
+            className="flex-1 font-satoshi"
+          />
+          <Button
+            onClick={handleCreate}
+            className="gap-2 bg-[#5ce1e6] font-satoshi w-full sm:w-auto"
+          >
+            <Plus size={16} /> Add
+          </Button>
+        </CardContent>
+      </Card>
 
-  {/* Loader */}
-  {loading ? (
-    <div className="flex justify-center items-center h-[50vh]">
-      <Loader />
+      {/* Loader */}
+      {loading ? (
+        <div className="flex justify-center items-center h-[50vh]">
+          <Loader />
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="p-0 overflow-x-auto">
+            <table className="w-full text-sm min-w-125 sm:min-w-full">
+              <thead className="bg-muted/50 font-satoshi">
+                <tr>
+                  <th className="p-4 text-left">#</th>
+                  <th className="p-4 text-left">Category Name</th>
+                  <th className="p-4 text-left">Created</th>
+                  <th className="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody className="font-satoshi">
+                {categories.map((cat, i) => (
+                  <tr key={cat.id} className="border-t">
+                    <td className="p-4">{i + 1}</td>
+
+                    {/* name */}
+                    <td className="p-4">
+                      {editingId === cat.id ? (
+                        <Input
+                          value={editName}
+                          onChange={(e) => setEditName(e.target.value)}
+                        />
+                      ) : (
+                        cat.name
+                      )}
+                    </td>
+
+                    {/* date */}
+                    <td className="p-4">
+                      {new Date(cat.createdAt).toLocaleDateString()}
+                    </td>
+
+                    {/* actions */}
+                    <td className="p-4 flex flex-wrap justify-center gap-2">
+                      {editingId === cat.id ? (
+                        <>
+                          <Button
+                            size="sm"
+                            className="bg-[#5ce1e6]"
+                            onClick={() => handleUpdate(cat.id)}
+                          >
+                            Save
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => setEditingId(null)}
+                          >
+                            Cancel
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            onClick={() => {
+                              setEditingId(cat.id);
+                              setEditName(cat.name);
+                            }}
+                          >
+                            <Pencil size={16} />
+                          </Button>
+
+                          <Button
+                            size="icon"
+                            variant="destructive"
+                            onClick={() => handleDelete(cat.id)}
+                          >
+                            <Trash2 size={16} />
+                          </Button>
+                        </>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </CardContent>
+        </Card>
+      )}
     </div>
-  ) : (
-    <Card>
-      <CardContent className="p-0 overflow-x-auto">
-        <table className="w-full text-sm min-w-125 sm:min-w-full">
-          <thead className="bg-muted/50 font-satoshi">
-            <tr>
-              <th className="p-4 text-left">#</th>
-              <th className="p-4 text-left">Category Name</th>
-              <th className="p-4 text-left">Created</th>
-              <th className="p-4 text-right">Actions</th>
-            </tr>
-          </thead>
-
-          <tbody className="font-satoshi">
-            {categories.map((cat, i) => (
-              <tr key={cat.id} className="border-t">
-                <td className="p-4">{i + 1}</td>
-
-                {/* name */}
-                <td className="p-4">
-                  {editingId === cat.id ? (
-                    <Input
-                      value={editName}
-                      onChange={(e) => setEditName(e.target.value)}
-                    />
-                  ) : (
-                    cat.name
-                  )}
-                </td>
-
-                {/* date */}
-                <td className="p-4">
-                  {new Date(cat.createdAt).toLocaleDateString()}
-                </td>
-
-                {/* actions */}
-                <td className="p-4 flex flex-wrap justify-center gap-2">
-                  {editingId === cat.id ? (
-                    <>
-                      <Button
-                        size="sm"
-                        className="bg-[#5ce1e6]"
-                        onClick={() => handleUpdate(cat.id)}
-                      >
-                        Save
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => setEditingId(null)}
-                      >
-                        Cancel
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button
-                        size="icon"
-                        variant="outline"
-                        onClick={() => {
-                          setEditingId(cat.id);
-                          setEditName(cat.name);
-                        }}
-                      >
-                        <Pencil size={16} />
-                      </Button>
-
-                      <Button
-                        size="icon"
-                        variant="destructive"
-                        onClick={() => handleDelete(cat.id)}
-                      >
-                        <Trash2 size={16} />
-                      </Button>
-                    </>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </CardContent>
-    </Card>
-  )}
-</div>
-
   );
 }

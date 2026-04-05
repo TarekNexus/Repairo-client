@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react";
 
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -15,9 +14,6 @@ import {
   Pill,
 } from "lucide-react";
 import Loader from "@/components/dashboard/Loader";
-
-
-
 
 import {
   LineChart,
@@ -56,27 +52,26 @@ export default function AdminDashboard() {
           getAllUsers(),
           getAllOrders(),
           getAllCategory(),
-         getAllservicesByProvider(),
+          getAllservicesByProvider(),
         ]);
 
       const users = usersRes.data || [];
       const orders = ordersRes || [];
 
       // User counts
-   
+
       setCustomersCount(users.filter((u: any) => u.role === "CUSTOMER").length);
 
       setAdminsCount(users.filter((u: any) => u.role === "ADMIN").length);
-  
+
       setSellersCount(users.filter((u: any) => u.role === "PROVIDER").length);
 
       setOrdersCount(orders.length);
       setCategoriesCount(categoriesRes.data?.length || 0);
       setServicesCount(servicesRes.data?.length || 0);
 
-   
       const ordersByDate: { [key: string]: number } = {};
-   
+
       orders.forEach((order: any) => {
         const date = new Date(order.createdAt).toLocaleDateString();
         ordersByDate[date] = (ordersByDate[date] || 0) + 1;
@@ -156,47 +151,48 @@ export default function AdminDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-3xl font-bold font-satoshi text-[#5ce1e6]">{stat.value}</p>
+                <p className="text-3xl font-bold font-satoshi text-[#5ce1e6]">
+                  {stat.value}
+                </p>
               </CardContent>
             </Card>
           ))}
         </div>
       </ScrollArea>
 
-     <div className="bg-white shadow-md rounded-xl p-2 md:p-5">
-  <h2 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
-    Orders Overview
-  </h2>
+      <div className="bg-white shadow-md rounded-xl p-2 md:p-5">
+        <h2 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
+          Orders Overview
+        </h2>
 
-  <ResponsiveContainer width="100%" height={320}>
-    <LineChart data={ordersChartData}>
-      
-      {/* gradient using your brand color */}
-      <defs>
-        <linearGradient id="ordersGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#5ce1e6" stopOpacity={0.9}/>
-          <stop offset="50%" stopColor="#FFB38A" stopOpacity={0.6}/>
-          <stop offset="100%" stopColor="#FFE5D6" stopOpacity={0.2}/>
-        </linearGradient>
-      </defs>
+        <ResponsiveContainer width="100%" height={320}>
+          <LineChart data={ordersChartData}>
+            {/* gradient using your brand color */}
+            <defs>
+              <linearGradient id="ordersGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#5ce1e6" stopOpacity={0.9} />
+                <stop offset="50%" stopColor="#FFB38A" stopOpacity={0.6} />
+                <stop offset="100%" stopColor="#FFE5D6" stopOpacity={0.2} />
+              </linearGradient>
+            </defs>
 
-      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-      <XAxis dataKey="date" />
-      <YAxis />
-      <Tooltip />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
 
-      <Line
-        type="monotone"
-        dataKey="orders"
-        stroke="#5ce1e6"
-        strokeWidth={3}
-        fill="url(#ordersGradient)"
-        dot={{ r: 4, fill: "#5ce1e6" }}
-        activeDot={{ r: 7 }}
-      />
-    </LineChart>
-  </ResponsiveContainer>
-</div>
+            <Line
+              type="monotone"
+              dataKey="orders"
+              stroke="#5ce1e6"
+              strokeWidth={3}
+              fill="url(#ordersGradient)"
+              dot={{ r: 4, fill: "#5ce1e6" }}
+              activeDot={{ r: 7 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

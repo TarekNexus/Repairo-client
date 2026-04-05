@@ -41,7 +41,6 @@ import { createServiceProvider } from "@/action/provider/createServiceProvider";
 import { updateServiceProvider } from "@/action/provider/updateServiceProvider";
 import { deleteServiceProvider } from "@/action/provider/deleteServiceProvider";
 
-
 type Category = {
   id: string;
   name: string;
@@ -123,10 +122,13 @@ export default function ServicesPage() {
     fd.append("upload_preset", UPLOAD_PRESET);
 
     try {
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`, {
-        method: "POST",
-        body: fd,
-      });
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`,
+        {
+          method: "POST",
+          body: fd,
+        },
+      );
       const data = await res.json();
       if (data.secure_url) {
         setFormData((prev) => ({ ...prev, image: data.secure_url }));
@@ -415,7 +417,12 @@ export default function ServicesPage() {
                   />
                   {preview && (
                     <div className="flex justify-center mt-2">
-                      <Image src={preview} alt="Preview" width={96} height={96} />
+                      <Image
+                        src={preview}
+                        alt="Preview"
+                        width={96}
+                        height={96}
+                      />
                     </div>
                   )}
                 </div>
@@ -456,8 +463,8 @@ export default function ServicesPage() {
                     ? "Adding..."
                     : "Updating..."
                   : isAddDialogOpen
-                  ? "Add Service"
-                  : "Update Service"}
+                    ? "Add Service"
+                    : "Update Service"}
               </Button>
             </div>
           </div>

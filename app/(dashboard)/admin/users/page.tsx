@@ -19,7 +19,6 @@ import { getAllUsers } from "@/action/admin/getAllUsers";
 import { updateUserRole } from "@/action/admin/updateUserRole";
 import { toggleBanUser } from "@/action/admin/toggleBanUser";
 
-
 interface User {
   id: string;
   name: string;
@@ -38,7 +37,7 @@ export default function AdminUsersPage() {
 
   const fetchUsers = async () => {
     setLoading(true);
-    const res = await getAllUsers()
+    const res = await getAllUsers();
     console.log(res);
     if (res.success) {
       setUsers(res.data);
@@ -57,7 +56,7 @@ export default function AdminUsersPage() {
     const f = users.filter(
       (u) =>
         u.name.toLowerCase().includes(search.toLowerCase()) ||
-        u.email.toLowerCase().includes(search.toLowerCase())
+        u.email.toLowerCase().includes(search.toLowerCase()),
     );
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFiltered(f);
@@ -102,7 +101,9 @@ export default function AdminUsersPage() {
 
   return (
     <div className="p-2 space-y-6">
-      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">Admin User Management</h1>
+      <h1 className="lg:text-3xl md:lg:text-3xl text-2xl font-satoshi font-bold text-[#5ce1e6] mb-4">
+        Admin User Management
+      </h1>
 
       {/* search */}
       <div className="flex gap-4">
@@ -152,7 +153,9 @@ export default function AdminUsersPage() {
                             className="rounded-full object-cover"
                           />
                           <div>
-                            <p className="font-medium  font-satoshi ">{user.name}</p>
+                            <p className="font-medium  font-satoshi ">
+                              {user.name}
+                            </p>
                             <p className="text-xs  font-satoshi  text-muted-foreground">
                               {new Date(user.createdAt).toLocaleDateString()}
                             </p>
@@ -160,7 +163,9 @@ export default function AdminUsersPage() {
                         </td>
 
                         {/* email */}
-                        <td className="p-4 text-center  font-satoshi ">{user.email}</td>
+                        <td className="p-4 text-center  font-satoshi ">
+                          {user.email}
+                        </td>
 
                         {/* role */}
                         <td className="p-4">
