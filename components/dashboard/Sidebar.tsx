@@ -50,8 +50,8 @@ export default function DashboardSidebar({
     switch (role) {
       case "ADMIN":
         return "/admin";
-      case "SELLER":
-        return "/seller/";
+      case "PROVIDER":
+        return "/provider";
       case "CUSTOMER":
         return "/customer";
       default:
