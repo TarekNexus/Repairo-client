@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { ArrowUpRight,  LogOut, User as UserIcon } from "lucide-react";
+import { ArrowUpRight, LogOut, User as UserIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { authClient } from "@/lib/auth-client";
 
 interface NavbarClientProps {
-  user?:{ name: string; image?: string; role: string; email: string }
+  user?: { name: string; image?: string; role: string; email: string };
 }
 
 const NavbarClient = ({ user }: NavbarClientProps) => {
@@ -82,7 +82,7 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
     <header
       className={cn(
         "sm:top-10 top-3 left-3 md:left-20 flex items-center bg-[#FFFFFF] rounded-[15px] px-10 mx-auto shadow-sm w-11/12 justify-between lg:px-30 py-2 text-black z-50 fixed transition-transform duration-500 ease-in-out",
-        isVisible ? "translate-y-0" : "-translate-y-30"
+        isVisible ? "translate-y-0" : "-translate-y-30",
       )}
     >
       {/* Logo */}
@@ -112,7 +112,7 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
                   className={cn(
                     "relative text-[15.63px] leading-[150%] tracking-[7%] text-black font-medium font-satoshi",
                     "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#5ce1e6] after:transition-all after:duration-300 after:ease-in-out",
-                    "hover:after:w-full"
+                    "hover:after:w-full",
                   )}
                 >
                   {link.label}
@@ -125,10 +125,10 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
               <li>
                 <Link
                   href="/customer"
-                   className={cn(
+                  className={cn(
                     "relative text-[15.63px] leading-[150%] tracking-[7%] text-black font-medium font-satoshi",
                     "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#5ce1e6] after:transition-all after:duration-300 after:ease-in-out",
-                    "hover:after:w-full"
+                    "hover:after:w-full",
                   )}
                 >
                   Dashboard
