@@ -43,7 +43,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         >
-          Repairo provides fast and reliable repair services for all your devices. <br />
+          Repairo provides fast and reliable repair services for all your
+          devices. <br />
           Get your gadgets fixed safely and conveniently — wherever you are.
         </motion.p>
       </motion.div>

@@ -42,10 +42,7 @@ export default function Card({ services, categories }: Props) {
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
 
-  const currentServices = filteredServices.slice(
-    indexOfFirst,
-    indexOfLast
-  );
+  const currentServices = filteredServices.slice(indexOfFirst, indexOfLast);
 
   const goToPage = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -69,24 +66,22 @@ export default function Card({ services, categories }: Props) {
             className="px-3 py-2 w-48 border rounded"
           />
 
-          {["All", ...(categories?.map((cat) => cat.name) || [])].map(
-            (tab) => (
-              <button
-                key={tab}
-                onClick={() => {
-                  setActiveTab(tab);
-                  setCurrentPage(1);
-                }}
-                className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeTab === tab
-                    ? "bg-[#5ce1e6] text-white"
-                    : "bg-[#FFFBF5] border border-[#211F1A] text-[#21201B] hover:border-[#5ce1e6]"
-                }`}
-              >
-                {tab}
-              </button>
-            )
-          )}
+          {["All", ...(categories?.map((cat) => cat.name) || [])].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => {
+                setActiveTab(tab);
+                setCurrentPage(1);
+              }}
+              className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                activeTab === tab
+                  ? "bg-[#5ce1e6] text-white"
+                  : "bg-[#FFFBF5] border border-[#211F1A] text-[#21201B] hover:border-[#5ce1e6]"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
 
           <div className="flex items-center gap-2">
             <input
