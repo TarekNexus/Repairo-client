@@ -122,13 +122,17 @@ export default function RegisterPage() {
       </div>
 
       <div className="relative my-20 z-10 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
-         <div className="flex justify-center mb-4">
-                  <Image src="/imgs/Repairos.png" alt="Repairo" width={150} height={60} />
-                </div>
+        <div className="flex justify-center mb-4">
+          <Image
+            src="/imgs/Repairos.png"
+            alt="Repairo"
+            width={150}
+            height={60}
+          />
+        </div>
 
-       
         <p className="text-center text-gray-600 font-satoshi mb-3">
-          Sign up with your details 
+          Sign up with your details
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
