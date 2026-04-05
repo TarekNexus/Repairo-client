@@ -35,7 +35,6 @@ export default function SellerDashboardPage() {
     ON_THE_WAY: 0,
     COMPLETED: 0,
     CANCELED: 0,
-  
   });
 
   useEffect(() => {
@@ -52,13 +51,13 @@ export default function SellerDashboardPage() {
       const services = servicesRes?.data || servicesRes || [];
 
       const statusCounts: Record<string, number> = {};
-  
 
       orders.forEach((order: any) => {
         // Booking status count
-        const bookingStatus = (order.bookingStatus || "UNKNOWN").trim().toUpperCase();
+        const bookingStatus = (order.bookingStatus || "UNKNOWN")
+          .trim()
+          .toUpperCase();
         statusCounts[bookingStatus] = (statusCounts[bookingStatus] || 0) + 1;
-
       });
 
       // Prepare orders chart data
@@ -70,8 +69,10 @@ export default function SellerDashboardPage() {
       });
 
       const chartData = Object.keys(ordersByDate)
-        .map(date => ({ date, orders: ordersByDate[date] }))
-        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        .map((date) => ({ date, orders: ordersByDate[date] }))
+        .sort(
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+        );
 
       setOrdersChartData(chartData);
 
@@ -83,7 +84,6 @@ export default function SellerDashboardPage() {
         ON_THE_WAY: statusCounts["ON_THE_WAY"] || 0,
         COMPLETED: statusCounts["COMPLETED"] || 0,
         CANCELED: statusCounts["CANCELED"] || 0,
-     
       });
     } catch (error) {
       console.error("Failed to fetch seller stats:", error);
@@ -101,18 +101,43 @@ export default function SellerDashboardPage() {
   }
 
   const statsCards = [
-    { title: "Total Orders", value: stats.totalOrders, icon: <ShoppingCart size={24} color="#a855f7" /> },
-    { title: "Pending Orders", value: stats.PENDING, icon: <UserCheck size={24} color="#facc15" /> },
-    { title: "Accepted Orders", value: stats.ACCEPTED, icon: <UserCheck size={24} color="#3b82f6" /> },
-    { title: "On The Way", value: stats.ON_THE_WAY, icon: <UserMinus size={24} color="#8b5cf6" /> },
-    { title: "Completed Orders", value: stats.COMPLETED, icon: <UserCheck size={24} color="#16a34a" /> },
-    { title: "Cancelled Orders", value: stats.CANCELED, icon: <ShoppingCart size={24} color="#ef4444" /> },
-
+    {
+      title: "Total Orders",
+      value: stats.totalOrders,
+      icon: <ShoppingCart size={24} color="#a855f7" />,
+    },
+    {
+      title: "Pending Orders",
+      value: stats.PENDING,
+      icon: <UserCheck size={24} color="#facc15" />,
+    },
+    {
+      title: "Accepted Orders",
+      value: stats.ACCEPTED,
+      icon: <UserCheck size={24} color="#3b82f6" />,
+    },
+    {
+      title: "On The Way",
+      value: stats.ON_THE_WAY,
+      icon: <UserMinus size={24} color="#8b5cf6" />,
+    },
+    {
+      title: "Completed Orders",
+      value: stats.COMPLETED,
+      icon: <UserCheck size={24} color="#16a34a" />,
+    },
+    {
+      title: "Cancelled Orders",
+      value: stats.CANCELED,
+      icon: <ShoppingCart size={24} color="#ef4444" />,
+    },
   ];
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 w-full max-w-full space-y-6">
-      <h1 className="text-3xl font-bold text-[#5ce1e6] font-satoshi">Provider Dashboard</h1>
+      <h1 className="text-3xl font-bold text-[#5ce1e6] font-satoshi">
+        Provider Dashboard
+      </h1>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -123,10 +148,14 @@ export default function SellerDashboardPage() {
           >
             <CardHeader className="flex items-center gap-4">
               {card.icon}
-              <CardTitle className="text-lg font-satoshi font-semibold">{card.title}</CardTitle>
+              <CardTitle className="text-lg font-satoshi font-semibold">
+                {card.title}
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold font-satoshi text-[#5ce1e6]">{card.value}</p>
+              <p className="text-3xl font-bold font-satoshi text-[#5ce1e6]">
+                {card.value}
+              </p>
             </CardContent>
           </Card>
         ))}

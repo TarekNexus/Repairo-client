@@ -53,9 +53,19 @@ const getStatusBadgeColor = (status: string) => {
 };
 
 // Types
-type Service = { id: string; title: string; description: string; price: number };
+type Service = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+};
 type Customer = { id: string; name: string; email: string };
-type Payment = { id: string; amount: number; method: string; status: string } | null;
+type Payment = {
+  id: string;
+  amount: number;
+  method: string;
+  status: string;
+} | null;
 
 type Order = {
   id: string;
@@ -106,7 +116,11 @@ export default function OrdersPage() {
       if (updated?.bookingStatus) {
         toast.success("Order updated successfully ✅");
         setOrders((prev) =>
-          prev.map((o) => (o.id === orderId ? { ...o, bookingStatus: updated.bookingStatus } : o))
+          prev.map((o) =>
+            o.id === orderId
+              ? { ...o, bookingStatus: updated.bookingStatus }
+              : o,
+          ),
         );
       } else {
         toast.error("Failed to update order ❌");
@@ -161,7 +175,9 @@ export default function OrdersPage() {
                 <TableCell>
                   <Select
                     value={order.bookingStatus}
-                    onValueChange={(val: OrderStatus) => handleStatusChange(order.id, val)}
+                    onValueChange={(val: OrderStatus) =>
+                      handleStatusChange(order.id, val)
+                    }
                     disabled={updatingId === order.id}
                   >
                     <SelectTrigger className="w-32">
@@ -179,15 +195,21 @@ export default function OrdersPage() {
                 <TableCell>
                   <span
                     className={`px-2 py-1 rounded-full text-sm ${getStatusBadgeColor(
-                      order.payment?.status || "UNPAID"
+                      order.payment?.status || "UNPAID",
                     )}`}
                   >
                     {order.payment?.status || "UNPAID"}
                   </span>
                 </TableCell>
-                <TableCell>{new Date(order.createdAt).toLocaleString()}</TableCell>
                 <TableCell>
-                  <Button size="sm" className="bg-[#5ce1e6]" onClick={() => setSelectedOrder(order)}>
+                  {new Date(order.createdAt).toLocaleString()}
+                </TableCell>
+                <TableCell>
+                  <Button
+                    size="sm"
+                    className="bg-[#5ce1e6]"
+                    onClick={() => setSelectedOrder(order)}
+                  >
                     View Details
                   </Button>
                 </TableCell>
@@ -206,20 +228,27 @@ export default function OrdersPage() {
             </div>
 
             <div className="p-4 overflow-y-auto flex-1 space-y-4">
-              <h2 className="text-lg font-semibold text-center">Order Details</h2>
+              <h2 className="text-lg font-semibold text-center">
+                Order Details
+              </h2>
 
               <p>
-                <span className="font-medium">Order ID:</span> {selectedOrder.id}
+                <span className="font-medium">Order ID:</span>{" "}
+                {selectedOrder.id}
               </p>
               <p>
                 <span className="font-medium">Booking Status:</span>{" "}
-                <span className={`px-2 py-1 rounded-full ${getStatusBadgeColor(selectedOrder.bookingStatus)}`}>
+                <span
+                  className={`px-2 py-1 rounded-full ${getStatusBadgeColor(selectedOrder.bookingStatus)}`}
+                >
                   {selectedOrder.bookingStatus}
                 </span>
               </p>
               <p>
                 <span className="font-medium">Payment Status:</span>{" "}
-                <span className={`px-2 py-1 rounded-full ${getStatusBadgeColor(selectedOrder.payment?.status || "UNPAID")}`}>
+                <span
+                  className={`px-2 py-1 rounded-full ${getStatusBadgeColor(selectedOrder.payment?.status || "UNPAID")}`}
+                >
                   {selectedOrder.payment?.status || "UNPAID"}
                 </span>
               </p>
