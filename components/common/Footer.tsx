@@ -15,13 +15,15 @@ const Footer = () => {
         {/* Left Section */}
         <div className="lg:w-1/2 flex flex-col items-center md:items-start space-y-8">
           {/* Logo */}
-          <Image
+        <Link href="/">
+           <Image
             src="/imgs/Repairos.png"
             alt="Repairo Logo"
             width={104}
             height={64}
             className="w-54 h-12"
           />
+        </Link>
 
           <div className="flex flex-col gap-4 items-center md:items-start">
             {/* Heading */}
@@ -43,17 +45,13 @@ const Footer = () => {
 
             {/* Buttons */}
             <div className="flex gap-4 mt-4">
-              <Link href="#reserve">
+              <Link href="/services">
                 <button className="bg-[#00aeff] hover:bg-[#008fcc] text-xs md:text-sm lg:text-base font-medium font-geist text-[#FFFFFF] px-4 py-3.5 rounded-[14px] flex items-center gap-1 transition-colors">
                   <PhoneCall className="w-4 lg:w-5" />
                   Book Now
                 </button>
               </Link>
-              <Link href="#services">
-                <button className="bg-[#707070] hover:bg-gray-600 text-xs md:text-sm lg:text-base font-medium font-geist text-[#FFFFFF] px-4 py-3.5 rounded-[14px] flex items-center gap-1 transition-colors">
-                  Our Services
-                </button>
-              </Link>
+              
             </div>
           </div>
         </div>
@@ -63,25 +61,21 @@ const Footer = () => {
           {/* Navigation Links */}
           <div className="flex gap-16 mb-12">
             <div className="space-y-5 text-center md:text-right">
-              <Link href="#faqs" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
-                FAQS
-              </Link>
-              <Link href="#blog" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
-                BLOGS
-              </Link>
-              <Link href="#contact" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
-                CONTACT
-              </Link>
+            
+             
             </div>
-            <div className="space-y-5 text-center md:text-right">
+            <div className="space-y-5 text-center md:text-left">
               <Link href="/" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
                 HOME
               </Link>
-              <Link href="#services" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+              <Link href="/services" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
                 SERVICES
               </Link>
-              <Link href="#testimonials" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+              <Link href="/#testimonials" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
                 TESTIMONIALS
+              </Link>
+               <Link href="/contact" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                CONTACT
               </Link>
             </div>
           </div>
@@ -90,10 +84,18 @@ const Footer = () => {
           <div className="text-right space-y-4">
             <p className="text-[#FFFFFF] font-inter text-lg hidden md:block mb-4">Connect on</p>
             <div className="flex gap-4">
-              <Link href="#twitter"><FaXTwitter size={30} className="text-[#00aeff]" /></Link>
-              <Link href="#linkedin"><FaLinkedin size={30} className="text-[#00aeff]" /></Link>
-              <Link href="#instagram"><RiInstagramFill size={30} className="text-[#00aeff]" /></Link>
-              <Link href="#facebook"><FaFacebook size={30} className="text-[#00aeff]" /></Link>
+              <Link href="https://twitter.com/repairo" target="_blank">
+                <FaXTwitter size={30} className="text-[#00aeff]" />
+              </Link>
+              <Link href="https://linkedin.com/company/repairo" target="_blank">
+                <FaLinkedin size={30} className="text-[#00aeff]" />
+              </Link>
+              <Link href="https://instagram.com/repairo" target="_blank">
+                <RiInstagramFill size={30} className="text-[#00aeff]" />
+              </Link>
+              <Link href="https://facebook.com/repairo" target="_blank">
+                <FaFacebook size={30} className="text-[#00aeff]" />
+              </Link>
             </div>
           </div>
         </div>
@@ -102,7 +104,7 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
         <p className="text-base font-geist text-[#999999]">
-          <Link href="https://www.repairo.com/" className="hover:text-white">
+          <Link href="https://github.com/TarekNexus/" className="hover:text-white">
             © 2025 Repairo.
           </Link>{" "} All rights reserved
         </p>

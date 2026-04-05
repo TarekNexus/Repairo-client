@@ -124,7 +124,7 @@ export default function Testimonials() {
       onMouseLeave={() => setIsPaused(false)}
       id="testimonials"
     >
-      <div className="w-11/12 mx-auto relative">
+      <div  className="w-11/12 mx-auto relative">
         {/* Heading */}
         <div className="mb-8 sm:mb-10 text-center sm:text-left">
         

@@ -41,7 +41,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="mx-auto w-11/12 bg-white py-6 sm:py-8 md:py-10">
+    <section id="#blog" className="mx-auto w-11/12 bg-white py-6 sm:py-8 md:py-10">
       <div className="">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
