@@ -19,10 +19,9 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
-// const [googleLoading, setGoogleLoading] = useState(false);
+  // const [googleLoading, setGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
-   
     const loginToast = toast.loading("Logging in...");
     try {
       const { data, error } = await authClient.signIn.email(values);
@@ -36,7 +35,7 @@ export default function LoginPage() {
       console.log("Logged in user:", data);
 
       setTimeout(() => {
-        window.location.href = "/"; 
+        window.location.href = "/";
       }, 1000);
     } catch (err: any) {
       console.error(err);
@@ -44,25 +43,24 @@ export default function LoginPage() {
     }
   };
 
-// const handleGoogleLogin = async () => {
-//   setGoogleLoading(true);
-//   const googleToast = toast.loading("Redirecting to Google...");
-//   try {
-//     const data = await authClient.signIn.social({
-//       provider: "google",
-//       // callbackURL: "http://localhost:3000",
-//       callbackURL: "https://repairo-client.vercel.app",
-//     });
-//     console.log(data);
-//     toast.dismiss(googleToast);
-//   } catch (err) {
-//     console.error(err);
-//     toast.error("Google login failed!", { id: googleToast });
-//   } finally {
-//     setGoogleLoading(false);
-//   }
-// };
-
+  // const handleGoogleLogin = async () => {
+  //   setGoogleLoading(true);
+  //   const googleToast = toast.loading("Redirecting to Google...");
+  //   try {
+  //     const data = await authClient.signIn.social({
+  //       provider: "google",
+  //       // callbackURL: "http://localhost:3000",
+  //       callbackURL: "https://repairo-client.vercel.app",
+  //     });
+  //     console.log(data);
+  //     toast.dismiss(googleToast);
+  //   } catch (err) {
+  //     console.error(err);
+  //     toast.error("Google login failed!", { id: googleToast });
+  //   } finally {
+  //     setGoogleLoading(false);
+  //   }
+  // };
 
   return (
     <section className="relative md:mb-5  p-4 min-h-screen  mx-auto flex items-center justify-center rounded-b-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
@@ -84,11 +82,16 @@ export default function LoginPage() {
       {/* Card */}
       <div className="relative z-10 my-20 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
         <div className="flex justify-center mb-4">
-          <Image src="/imgs/Repairos.png" alt="Repairo" width={150} height={60} />
+          <Image
+            src="/imgs/Repairos.png"
+            alt="Repairo"
+            width={150}
+            height={60}
+          />
         </div>
 
         <p className="text-center text-gray-600 font-satoshi mb-6">
-          Enter your credentials 
+          Enter your credentials
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -101,39 +104,52 @@ export default function LoginPage() {
               disabled={isSubmitting}
               {...register("email", { required: "Email is required" })}
               className={`border px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${
-                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"
+                errors.email
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:ring-[#5ce1e6]"
               }`}
             />
-            {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email.message}</span>}
+            {errors.email && (
+              <span className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </span>
+            )}
           </div>
 
           {/* Password */}
-         <div className="flex flex-col relative">
-      <label className="text-gray-700 font-inter mb-1">Password</label>
-      <input
-        type={showPassword ? "text" : "password"}
-        placeholder="********"
-        disabled={isSubmitting}
-        {...register("password", {
-          required: "Password is required",
-          minLength: { value: 6, message: "Password must be at least 6 characters" },
-        })}
-        className={`border px-4 py-2 rounded-lg w-full focus:outline-none focus:ring-2 pr-10 ${
-          errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"
-        }`}
-      />
-      {/* Show/Hide Password Icon */}
-      <button
-        type="button"
-        onClick={() => setShowPassword(!showPassword)}
-        className="absolute right-3 top-9 text-gray-400"
-      >
-        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-      </button>
-      {errors.password && (
-        <span className="text-red-500 text-sm mt-1">{errors.password.message}</span>
-      )}
-    </div>
+          <div className="flex flex-col relative">
+            <label className="text-gray-700 font-inter mb-1">Password</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="********"
+              disabled={isSubmitting}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+              })}
+              className={`border px-4 py-2 rounded-lg w-full focus:outline-none focus:ring-2 pr-10 ${
+                errors.password
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:ring-[#5ce1e6]"
+              }`}
+            />
+            {/* Show/Hide Password Icon */}
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-9 text-gray-400"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+            {errors.password && (
+              <span className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </span>
+            )}
+          </div>
 
           <button
             type="submit"
@@ -188,7 +204,10 @@ export default function LoginPage() {
         {/* Register Link */}
         <p className="text-center text-gray-500 mt-6 font-inter">
           Don’t have an account?{" "}
-          <a href="/register" className="text-[#00aeff] font-semibold hover:underline">
+          <a
+            href="/register"
+            className="text-[#00aeff] font-semibold hover:underline"
+          >
             Register
           </a>
         </p>
