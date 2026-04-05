@@ -15,13 +15,16 @@ export type ServiceInput = {
 export const providerService = {
   getAllservicesByProvider: async (cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/my-services`, {
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/my-services`,
+        {
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
         },
-      });
+      );
       const data = await response.json();
       return data;
     } catch (error) {
@@ -32,13 +35,16 @@ export const providerService = {
 
   getAllServices: async (cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/services/categories/all`, {
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/services/categories/all`,
+        {
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
         },
-      });
+      );
       const result = await response.json();
       return result.data || [];
     } catch (error) {
@@ -49,13 +55,16 @@ export const providerService = {
 
   getServiceById: async (cookieStore: any, id: string) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/services/${id}`, {
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/services/${id}`,
+        {
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
         },
-      });
+      );
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
       return result.data;
@@ -66,7 +75,10 @@ export const providerService = {
   },
 
   // ✅ Create service
-  createServiceProvider: async (cookieStore: any, serviceData: ServiceInput) => {
+  createServiceProvider: async (
+    cookieStore: any,
+    serviceData: ServiceInput,
+  ) => {
     try {
       const payload = {
         title: serviceData.title,
@@ -78,14 +90,17 @@ export const providerService = {
         categoryId: serviceData.category.id,
       };
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       const result = await response.json();
 
@@ -100,7 +115,11 @@ export const providerService = {
     }
   },
 
-  updateServiceProvider: async (id: string, serviceData: ServiceInput, cookieStore: any) => {
+  updateServiceProvider: async (
+    id: string,
+    serviceData: ServiceInput,
+    cookieStore: any,
+  ) => {
     try {
       const payload = {
         title: serviceData.title,
@@ -112,18 +131,22 @@ export const providerService = {
         categoryId: serviceData.category.id,
       };
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       const result = await response.json();
 
-      if (!response.ok) throw new Error(result.message || "Failed to update service");
+      if (!response.ok)
+        throw new Error(result.message || "Failed to update service");
 
       return result;
     } catch (error) {
@@ -134,15 +157,19 @@ export const providerService = {
 
   deleteServiceProvider: async (id: string, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`, {
-        method: "DELETE",
-        headers: {
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Cookie: cookieStore.toString(),
+          },
         },
-      });
+      );
 
       const result = await response.json();
-      if (!response.ok) throw new Error(result.message || "Failed to delete service");
+      if (!response.ok)
+        throw new Error(result.message || "Failed to delete service");
 
       return result;
     } catch (error) {
@@ -151,19 +178,23 @@ export const providerService = {
     }
   },
 
-   getAllOrdersProvider: async (cookieStore: any) => {
+  getAllOrdersProvider: async (cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/bookings`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/bookings`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          cache: "no-store",
         },
-        cache: "no-store",
-      });
+      );
 
       const result = await response.json();
-      if (!result.success) throw new Error(result.message || "Failed to fetch orders");
+      if (!result.success)
+        throw new Error(result.message || "Failed to fetch orders");
 
       return result.data; // array of bookings
     } catch (error) {
