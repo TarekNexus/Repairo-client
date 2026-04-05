@@ -11,9 +11,14 @@ export default async function Page() {
   const services = servicesRes?.data || [];
 
   return (
-    <div>
+         <div className="relative">
+      <div className="z-1 sticky top-0 isolate">
       <Hero />
-      <Card services={services} categories={categories} />
+      </div>
+      <div className="relative z-10 bg-white rounded-t-[40px]">
+    
+         <Card services={services} categories={categories} />
+      </div>
     </div>
   );
 }

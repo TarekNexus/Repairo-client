@@ -48,7 +48,6 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
   const links = [
     { href: "/" as const, label: "Home" },
     { href: "/services" as const, label: "Services" },
-    { href: "/cart" as const, label: "Cart" },
     { href: "/contact" as const, label: "Contact" },
   ];
 

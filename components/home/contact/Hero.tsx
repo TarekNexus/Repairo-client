@@ -69,7 +69,7 @@ export default function Banner() {
 
   return (
     <section
-      className="relative w-full  flex justify-center items-center py-20 mx-auto   h-full lg:h-175"
+      className="relative w-full  flex justify-center items-center py-20 mx-auto rounded-b-[40px]  h-full lg:h-175"
       style={{
         backgroundImage: "url('/imgs/Air-Conditioner-Repair.jpg')",
         backgroundSize: "cover",
@@ -79,7 +79,7 @@ export default function Banner() {
       <Toaster position="top-right" />
       {/* Overlay */}
       <motion.div
-        className="absolute inset-0 z-0  bg-black/90 opacity-10"
+        className="absolute inset-0 z-0  bg-black/90 rounded-b-[40px] opacity-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.25 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
