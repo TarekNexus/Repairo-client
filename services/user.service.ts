@@ -1,8 +1,4 @@
-
-
 import { cookies } from "next/headers";
-
-
 
 export const userService = {
   getSession: async function () {

@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
   let role: string | null = null;
 
   const { data } = await userService.getSession();
-  
+
   if (data) {
     isAuthenticated = true;
     role = data.user.role; // admin, user, seller
@@ -18,7 +18,7 @@ export async function proxy(request: NextRequest) {
 
   console.log(data);
 
-  // * User is not authenticated at all
+ 
   if (!isAuthenticated) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -26,7 +26,7 @@ export async function proxy(request: NextRequest) {
   if (!isAuthenticated && pathname.startsWith("/cart")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
-   if (!isAuthenticated && pathname.startsWith("/checkout")) {
+  if (!isAuthenticated && pathname.startsWith("/checkout")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
   // * Role-based access control
@@ -60,12 +60,12 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     "/customer",
-    "/customer/:path*", 
+    "/customer/:path*",
     "/admin",
     "/admin/:path*",
     "/seller",
     "/seller/:path*",
     "/cart",
-    "/checkout"
+    "/checkout",
   ],
 };
