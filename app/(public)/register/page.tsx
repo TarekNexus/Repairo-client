@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
@@ -92,28 +92,28 @@ export default function RegisterPage() {
     if (file) handleImageUpload(file);
   };
 
-  const handleGoogleRegister = async () => {
-    try {
-      toast.loading("Redirecting to Google...");
-      const data = await authClient.signIn.social({
-        provider: "google",
-        // callbackURL: "http://localhost:3000",
-        callbackURL: "https://pharma-plus-client.vercel.app",
-      });
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-      toast.error("Google registration failed!");
-    }
-  };
+  // const handleGoogleRegister = async () => {
+  //   try {
+  //     toast.loading("Redirecting to Google...");
+  //     const data = await authClient.signIn.social({
+  //       provider: "google",
+  //       // callbackURL: "http://localhost:3000",
+  //       callbackURL: "https://pharma-plus-client.vercel.app",
+  //     });
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.error(err);
+  //     toast.error("Google registration failed!");
+  //   }
+  // };
 
   return (
-    <section className="relative md:mb-5 md:mt-8 p-4 min-h-screen md:w-11/12 mx-auto flex items-center justify-center md:rounded-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
+    <section className="relative mb-2 p-4 min-h-screen rounded-b-[30px] mx-auto flex items-center justify-center  overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
       <Toaster position="top-right" />
 
       <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
         <Image
-          src="/imgs/login.jpg"
+          src="/imgs/blue.jpg"
           alt="Register Background"
           fill
           className="object-cover object-center"
@@ -122,20 +122,13 @@ export default function RegisterPage() {
       </div>
 
       <div className="relative my-20 z-10 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
-        <div className="flex justify-center mb-1">
-          <Image
-            src="/imgs/smallLogo.png"
-            alt="Pharmaplus"
-            width={60}
-            height={60}
-          />
-        </div>
+         <div className="flex justify-center mb-4">
+                  <Image src="/imgs/Repairos.png" alt="Repairo" width={150} height={60} />
+                </div>
 
-        <h1 className="lg:text-3xl md:lg:text-3xl text-2xl text-center font-satoshi font-bold text-[#5ce1e6]">
-          Create Account
-        </h1>
+       
         <p className="text-center text-gray-600 font-satoshi mb-3">
-          Sign up with your details or continue with Google
+          Sign up with your details 
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -228,21 +221,21 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={isSubmitting || uploading}
-            className="w-full bg-[#5ce1e6] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70"
+            className="w-full bg-[#00aeff] hover:bg-[#008fcc] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md transition-all disabled:opacity-70"
           >
             {isSubmitting ? "Registering..." : "Register"}
           </button>
         </form>
 
         {/* Divider */}
-        <div className="flex items-center my-5">
+        {/* <div className="flex items-center my-5">
           <hr className="flex-1 border-gray-300" />
           <span className="mx-3 text-gray-500 font-inter">or</span>
           <hr className="flex-1 border-gray-300" />
-        </div>
+        </div> */}
 
         {/* Google Signup */}
-        <button
+        {/* <button
           onClick={handleGoogleRegister}
           disabled={isSubmitting}
           className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:shadow-md transition"
@@ -251,13 +244,13 @@ export default function RegisterPage() {
           <span className="font-satoshi font-semibold text-gray-700">
             {isSubmitting ? "Redirecting..." : "Continue with Google"}
           </span>
-        </button>
+        </button> */}
 
         <p className="text-center text-gray-500 mt-6 font-inter">
           Already have an account?{" "}
           <a
             href="/login"
-            className="text-[#5ce1e6] font-semibold hover:underline"
+            className="text-[#00aeff] font-semibold hover:underline"
           >
             Login
           </a>

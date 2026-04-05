@@ -97,7 +97,7 @@ const handleLogout = async () => {
 
           <Link href={getDashboardLink(role)}>
             <Image
-              src="/imgs/Repairo.png"
+              src="/imgs/dashboard.png"
               alt="Repairo"
               width={150}
               height={40}

@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
@@ -19,7 +19,7 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
-const [googleLoading, setGoogleLoading] = useState(false);
+// const [googleLoading, setGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
    
@@ -44,35 +44,35 @@ const [googleLoading, setGoogleLoading] = useState(false);
     }
   };
 
-const handleGoogleLogin = async () => {
-  setGoogleLoading(true);
-  const googleToast = toast.loading("Redirecting to Google...");
-  try {
-    const data = await authClient.signIn.social({
-      provider: "google",
-      // callbackURL: "http://localhost:3000",
-      callbackURL: "https://pharma-plus-client.vercel.app",
-    });
-    console.log(data);
-    toast.dismiss(googleToast);
-  } catch (err) {
-    console.error(err);
-    toast.error("Google login failed!", { id: googleToast });
-  } finally {
-    setGoogleLoading(false);
-  }
-};
+// const handleGoogleLogin = async () => {
+//   setGoogleLoading(true);
+//   const googleToast = toast.loading("Redirecting to Google...");
+//   try {
+//     const data = await authClient.signIn.social({
+//       provider: "google",
+//       // callbackURL: "http://localhost:3000",
+//       callbackURL: "https://repairo-client.vercel.app",
+//     });
+//     console.log(data);
+//     toast.dismiss(googleToast);
+//   } catch (err) {
+//     console.error(err);
+//     toast.error("Google login failed!", { id: googleToast });
+//   } finally {
+//     setGoogleLoading(false);
+//   }
+// };
 
 
   return (
-    <section className="relative md:mb-5 md:mt-8 p-4 min-h-screen md:w-11/12 mx-auto flex items-center justify-center md:rounded-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
+    <section className="relative md:mb-5  p-4 min-h-screen  mx-auto flex items-center justify-center rounded-b-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
       {/* Toast container */}
       <Toaster position="top-right" />
 
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
         <Image
-          src="/imgs/login.jpg"
+          src="/imgs/blue.jpg"
           alt="Login Background"
           fill
           className="object-cover object-center"
@@ -84,14 +84,11 @@ const handleGoogleLogin = async () => {
       {/* Card */}
       <div className="relative z-10 my-20 w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-[#5ce1e6]">
         <div className="flex justify-center mb-4">
-          <Image src="/imgs/smallLogo.png" alt="Pharmaplus" width={60} height={60} />
+          <Image src="/imgs/Repairos.png" alt="Repairo" width={150} height={60} />
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-gilroy-bold text-[#5ce1e6] mb-2 text-center">
-          Pharmaplus Login
-        </h1>
         <p className="text-center text-gray-600 font-satoshi mb-6">
-          Enter your credentials or use Google
+          Enter your credentials 
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -141,7 +138,7 @@ const handleGoogleLogin = async () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#5ce1e6] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md hover:bg-[#ff9f61] transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full bg-[#00aeff] hover:bg-[#008fcc] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md  transition-all disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isSubmitting && (
               <svg
@@ -170,14 +167,14 @@ const handleGoogleLogin = async () => {
         </form>
 
         {/* Divider */}
-        <div className="flex items-center my-5">
+        {/* <div className="flex items-center my-5">
           <hr className="flex-1 border-gray-300" />
           <span className="mx-3 text-gray-500 font-inter">or</span>
           <hr className="flex-1 border-gray-300" />
-        </div>
+        </div> */}
 
         {/* Google Login */}
-        <button
+        {/* <button
           onClick={handleGoogleLogin}
           disabled={googleLoading}
           className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:shadow-md transition"
@@ -186,12 +183,12 @@ const handleGoogleLogin = async () => {
           <span className="font-satoshi font-semibold text-gray-700">
             {googleLoading ? "Redirecting..." : "Login with Google"}
           </span>
-        </button>
+        </button> */}
 
         {/* Register Link */}
         <p className="text-center text-gray-500 mt-6 font-inter">
           Don’t have an account?{" "}
-          <a href="/register" className="text-[#5ce1e6] font-semibold hover:underline">
+          <a href="/register" className="text-[#00aeff] font-semibold hover:underline">
             Register
           </a>
         </p>
