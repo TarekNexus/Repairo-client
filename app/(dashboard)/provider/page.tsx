@@ -34,7 +34,7 @@ export default function SellerDashboardPage() {
     ACCEPTED: 0,
     ON_THE_WAY: 0,
     COMPLETED: 0,
-    CANCELED: 0,
+    CANCELLED: 0,
   });
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function SellerDashboardPage() {
         ACCEPTED: statusCounts["ACCEPTED"] || 0,
         ON_THE_WAY: statusCounts["ON_THE_WAY"] || 0,
         COMPLETED: statusCounts["COMPLETED"] || 0,
-        CANCELED: statusCounts["CANCELED"] || 0,
+        CANCELLED: statusCounts["CANCELLED"] || 0,
       });
     } catch (error) {
       console.error("Failed to fetch seller stats:", error);
@@ -128,7 +128,7 @@ export default function SellerDashboardPage() {
     },
     {
       title: "Cancelled Orders",
-      value: stats.CANCELED,
+      value: stats.CANCELLED,
       icon: <ShoppingCart size={24} color="#ef4444" />,
     },
   ];
