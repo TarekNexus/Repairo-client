@@ -92,7 +92,9 @@ export default function CheckoutPage() {
           {/* Form Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col">
-              <label className="mb-2 font-medium text-gray-700">Date & Time</label>
+              <label className="mb-2 font-medium text-gray-700">
+                Date & Time
+              </label>
               <input
                 type="datetime-local"
                 value={date}
@@ -102,7 +104,9 @@ export default function CheckoutPage() {
             </div>
 
             <div className="flex flex-col">
-              <label className="mb-2 font-medium text-gray-700">Phone Number</label>
+              <label className="mb-2 font-medium text-gray-700">
+                Phone Number
+              </label>
               <input
                 type="text"
                 placeholder="Enter phone number"
@@ -160,7 +164,8 @@ export default function CheckoutPage() {
 
       <style jsx>{`
         @keyframes blob {
-          0%, 100% {
+          0%,
+          100% {
             transform: translate(0px, 0px) scale(1);
           }
           33% {
