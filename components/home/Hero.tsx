@@ -51,7 +51,8 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-neue font-normal leading-[1.1] text-3xl sm:text-4xl md:text-[45px] lg:text-[64px] mb-4"
           >
-            Reliable Home Services <br className="hidden md:block" /> Whenever You Need
+            Reliable Home Services <br className="hidden md:block" /> Whenever
+            You Need
           </motion.h1>
 
           {/* Paragraph */}
@@ -62,8 +63,10 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
             className="font-satoshi text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/90 mb-6 md:mb-8"
           >
-            Find and book trusted electricians, plumbers, cleaners, AC mechanics, and more. <br />
-            Pay online, track your bookings, and get quality services done at your doorstep with RepairLagbe.
+            Find and book trusted electricians, plumbers, cleaners, AC
+            mechanics, and more. <br />
+            Pay online, track your bookings, and get quality services done at
+            your doorstep with RepairLagbe.
           </motion.p>
 
           {/* Icon Pills */}
@@ -75,7 +78,8 @@ const Hero = () => {
             className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6"
             aria-label="Key highlights"
           >
-            {[{ Icon: IoConstruct, label: "Skilled Providers" },
+            {[
+              { Icon: IoConstruct, label: "Skilled Providers" },
               { Icon: Building2, label: "Trusted Services" },
               { Icon: Shield, label: "Safe & Reliable" },
             ].map(({ Icon, label }, i) => (
@@ -91,33 +95,39 @@ const Hero = () => {
           </motion.div>
 
           {/* Buttons */}
-   <motion.div
-  initial={{ opacity: 0, y: 16 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-  className="flex flex-row items-center gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto"
->
-  <Link href={"/services"}>
-    <motion.button
-      whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(87, 207, 213, 0.5)" }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="w-full sm:w-auto h-10.5 sm:h-12 md:h-12.5 font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-[#57cfd5] text-white shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] transition"
-    >
-      Browse Services
-    </motion.button>
-  </Link>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="flex flex-row items-center gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto"
+          >
+            <Link href={"/services"}>
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 8px 20px rgba(87, 207, 213, 0.5)",
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-full sm:w-auto h-10.5 sm:h-12 md:h-12.5 font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-[#57cfd5] text-white shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] transition"
+              >
+                Browse Services
+              </motion.button>
+            </Link>
 
-  <Link href={"/contact"}>
-    <motion.button
-      whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(24,54,84,0.4)" }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="w-full sm:w-auto h-10.5 sm:h-12 md:h-12.5 font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-white text-[#183654] shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] transition"
-    >
-      Contact Us
-    </motion.button>
-  </Link>
-</motion.div>
+            <Link href={"/contact"}>
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 8px 20px rgba(24,54,84,0.4)",
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-full sm:w-auto h-10.5 sm:h-12 md:h-12.5 font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-white text-[#183654] shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] transition"
+              >
+                Contact Us
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
