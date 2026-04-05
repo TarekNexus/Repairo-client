@@ -25,9 +25,7 @@ export default function Banner() {
     name: "",
     email: "",
     message: "",
-  
   });
-
 
   const [, setSubmitting] = useState(false);
 
@@ -60,7 +58,7 @@ export default function Banner() {
       });
 
       toast.success("Submitted! Your info has been recorded.");
-      setFormData({ name: "", email: "", message: "", });
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
       console.error(err);
       toast.error("Submission failed. Please try again.");
@@ -68,28 +66,29 @@ export default function Banner() {
       setSubmitting(false);
     }
   };
+
   return (
     <section
-      className="relative w-full md:w-11/12 flex justify-center items-center py-20 mx-auto md:rounded-3xl md:mt-5 h-full lg:h-175"
+      className="relative w-full  flex justify-center items-center py-20 mx-auto   h-full lg:h-175"
       style={{
-        backgroundImage: "url('/imgs/contact.jpg')",
+        backgroundImage: "url('/imgs/Air-Conditioner-Repair.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-       <Toaster position="top-right" />
+      <Toaster position="top-right" />
       {/* Overlay */}
       <motion.div
-        className="absolute inset-0 z-0 md:rounded-3xl bg-black/80 opacity-10"
+        className="absolute inset-0 z-0  bg-black/90 opacity-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.25 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       ></motion.div>
 
-      <div className="relative z-10 flex flex-col lg:flex-row w-11/12 px-5 md:px-25 items-center justify-between gap-4">
+      <div className="relative z-10 mt-20 flex flex-col lg:flex-row w-11/12 px-5 md:px-25 items-center justify-between gap-4">
         {/* Left text content */}
         <motion.div
-          className="text-white  max-w-150 text-center md:text-left"
+          className="text-white max-w-150 text-center md:text-left "
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -99,29 +98,28 @@ export default function Banner() {
             LET’S <br /> TALK.
           </h1>
 
-          <p className="text-base sm:text-lg md:text-[22px] mb-6">
-           Your Health, Delivered to Your Door{" "}
-            <br className="hidden sm:block" /> your vision and bring it to life.
-          </p>
+           <p className="text-base sm:text-lg md:text-[22px] mb-6">
+        Need help with plumbing, electrical work, AC repair, cleaning, or painting?
+        Our Repairo team is ready to bring your vision to life.
+      </p>
 
           <div className="space-y-2 text-sm sm:text-base">
-         
             <p className="font-medium underline">+8801778188448</p>
           </div>
         </motion.div>
 
         {/* Right form */}
         <motion.div
-          className="bg-white/95 backdrop-blur-sm  rounded-[22px] border-4 border-[#5ce1e6] p-5 sm:p-6 md:p-8 w-full sm:w-100 shadow-lg"
+          className="bg-white/95 backdrop-blur-sm rounded-[22px] border-4 border-[#00aeff] p-5 sm:p-6 md:p-8 w-full sm:w-100 shadow-lg"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <form className="space-y-4 " onSubmit={handleSubmit}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             {/* Name */}
             <div>
-              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
+              <label className="block text-sm font-semibold text-[#00aeff] mb-1">
                 NAME
               </label>
               <input
@@ -130,13 +128,13 @@ export default function Banner() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
+                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#00aeff] outline-none"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
+              <label className="block text-sm font-semibold text-[#00aeff] mb-1">
                 EMAIL
               </label>
               <input
@@ -145,13 +143,13 @@ export default function Banner() {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
+                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#00aeff] outline-none"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-semibold text-[#5ce1e6] mb-1">
+              <label className="block text-sm font-semibold text-[#00aeff] mb-1">
                 MESSAGE
               </label>
               <textarea
@@ -160,14 +158,14 @@ export default function Banner() {
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
-               className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#5ce1e6] outline-none"
+                className="w-full border border-gray-300 rounded-[15px] px-4 py-3 text-gray-800 focus:ring-2 focus:ring-[#00aeff] outline-none"
               ></textarea>
             </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-[#5ce1e6] hover:bg-[#cc510a] text-white font-semibold py-2.5 rounded-[15px] transition"
+              className="w-full bg-[#00aeff] hover:bg-[#0095db] text-white font-semibold py-2.5 rounded-[15px] transition"
             >
               Submit
             </button>
