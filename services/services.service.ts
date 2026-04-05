@@ -150,10 +150,13 @@ export const servicesService = {
   // Get service by ID
   getServicesById: async (id: string, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/services/${id}`, {
-        cache: "no-store",
-        headers: { Cookie: cookieStore.toString() },
-      });
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/services/${id}`,
+        {
+          cache: "no-store",
+          headers: { Cookie: cookieStore.toString() },
+        },
+      );
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
       return result.data; // returns the single service object

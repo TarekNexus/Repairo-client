@@ -4,7 +4,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const customerService = {
   // 🔹 Get customer profile
- async getProfile(cookieStore: any) {
+  async getProfile(cookieStore: any) {
     try {
       const res = await fetch(`${baseUrl}/api/customer/profile`, {
         headers: {
@@ -19,13 +19,16 @@ export const customerService = {
   },
 
   // 🔹 Update customer profile (PATCH)
-  async updateProfile(profileData: { name?: string; email?: string; image?: string }, cookieStore: any) {
+  async updateProfile(
+    profileData: { name?: string; email?: string; image?: string },
+    cookieStore: any,
+  ) {
     try {
       const res = await fetch(`${baseUrl}/api/customer/profile`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Cookie: cookieStore.toString()
+          Cookie: cookieStore.toString(),
         },
         body: JSON.stringify(profileData),
       });
@@ -40,7 +43,7 @@ export const customerService = {
   async getMyOrders(cookieStore: any) {
     try {
       const res = await fetch(`${baseUrl}/api/customer/bookings`, {
-          headers: {
+        headers: {
           Cookie: cookieStore.toString(),
         },
       });
@@ -54,13 +57,15 @@ export const customerService = {
   // 🔹 Cancel an order
   async cancelOrder(orderId: string, cookieStore: any) {
     try {
-      const res = await fetch(`${baseUrl}/api/customer/bookings/${orderId}/cancel`, {
-        method: "PATCH", // or "POST" depending on your backend
-        headers: {
-          Cookie: cookieStore.toString(),
+      const res = await fetch(
+        `${baseUrl}/api/customer/bookings/${orderId}/cancel`,
+        {
+          method: "PATCH", // or "POST" depending on your backend
+          headers: {
+            Cookie: cookieStore.toString(),
+          },
         },
-       
-      });
+      );
       return await res.json();
     } catch (err) {
       console.error(err);
