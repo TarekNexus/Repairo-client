@@ -3,11 +3,11 @@
 
 import { useEffect, useState } from "react";
 import { Loader2, X } from "lucide-react";
-import toast from "react-hot-toast";
+
 import Image from "next/image";
 import { getMyOrders } from "@/action/customer/getMyOrders";
 import { cancelOrder } from "@/action/customer/cancelOrder";
-
+import Swal from "sweetalert2";
 interface Customer {
   id: string;
   name: string;
@@ -78,23 +78,62 @@ export default function OrdersPage() {
     fetchOrders();
   }, []);
 
-  const handleCancelOrder = async (orderId: string) => {
-    if (!confirm("Are you sure you want to cancel this booking?")) return;
+ 
 
-    setCancelingOrderId(orderId);
+const handleCancelOrder = async (orderId: string) => {
+  const result = await Swal.fire({
+    title: "Cancel Booking?",
+    text: "Are you sure you want to cancel this booking?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#FF4D00",
+    cancelButtonColor: "#6B7280",
+    confirmButtonText: "Yes, cancel it",
+    cancelButtonText: "No",
+  });
+
+  if (!result.isConfirmed) return;
+
+  setCancelingOrderId(orderId);
+
+  try {
     const res = await cancelOrder(orderId);
-    setCancelingOrderId(null);
 
     if (res.success) {
-      toast.success("Booking canceled successfully");
       setOrders((prev) =>
         prev.map((order) =>
-          order.id === orderId ? { ...order, bookingStatus: "CANCELED" } : order
+          order.id === orderId
+            ? { ...order, bookingStatus: "CANCELED" }
+            : order
         )
       );
-    } else toast.error("Failed to cancel booking");
-  };
 
+      await Swal.fire({
+        title: "Canceled!",
+        text: "Your booking has been canceled successfully.",
+        icon: "success",
+        confirmButtonColor: "#5ce1e6",
+      });
+    } else {
+      Swal.fire({
+        title: "Failed!",
+        text: "Failed to cancel booking.",
+        icon: "error",
+        confirmButtonColor: "#FF4D00",
+      });
+    }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    Swal.fire({
+      title: "Error!",
+      text: "Something went wrong while canceling the booking.",
+      icon: "error",
+      confirmButtonColor: "#FF4D00",
+    });
+  } finally {
+    setCancelingOrderId(null);
+  }
+};
   const getStatusBadgeColor = (status: string) => {
     switch (status) {
       case "PENDING":
