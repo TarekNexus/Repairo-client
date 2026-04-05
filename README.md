@@ -52,8 +52,8 @@ Repairo is a full-stack home service booking platform where customers can easily
 
 ## Technologies Used
 
-- **Frontend:** Next.js, Tailwind CSS  
-- **Backend:** Node.js, Express.js  
+- **Frontend:** Next.js, Tailwind CSS,TypeScript  
+- **Backend:** Node.js, Express.js ,TypeScript 
 - **Database:** PostgreSQL, Prisma ORM  
 - **Authentication:** JWT / BetterAuth  
 - **Payment Gateways:**  Stripe  
@@ -67,4 +67,4 @@ Repairo is a full-stack home service booking platform where customers can easily
 ```bash
 git clone https://github.com/TarekNexus/Repairo-client
 cd repairo
-create .env and follor example.env
+create .env and follow example.env
