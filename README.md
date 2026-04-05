@@ -1,164 +1,70 @@
-# PharmaPlus 💊
-**"Your Trusted Online Medicine Shop"**
+# Repairo – Home Service Booking Platform
+
+
+
+## Project Description
+
+Repairo is a full-stack home service booking platform where customers can easily find and book local service providers, including electricians, plumbers, AC mechanics, cleaners, and WiFi technicians.  
+
+- Customers can browse services, book providers, pay online, and track their bookings.  
+- Providers can manage their services and bookings through a dedicated dashboard.  
+- Admins can oversee the platform, manage users, services, categories, and bookings.  
 
 ---
 
-## Project Overview
-PharmaPlus is a full-stack e-commerce web application designed for purchasing over-the-counter (OTC) medicines. Customers can browse medicines, add them to their cart, and place orders. Sellers manage their medicine inventory and fulfill orders, while admins oversee the platform and manage all users and listings.
+## Live URLs
 
----
+- **Frontend (User Interface):** [https://repairo-client.vercel.app/](https://repairo-client.vercel.app/)  
+- **Backend (API):** [https://repairo-server.vercel.app/](https://repairo-server.vercel.app/)  
 
-## Roles & Permissions
-
-| Role     | Description                     | Key Permissions                                           |
-|---------|---------------------------------|----------------------------------------------------------|
-| Customer | Users who purchase medicines    | Browse, add to cart, place orders, track status, leave reviews |
-| Seller   | Medicine vendors / pharmacies   | Manage inventory, view orders, update order status      |
-| Admin    | Platform moderators             | Manage all inventory, users, oversee orders            |
-
-
-
----
-
-## Tech Stack
-- **Frontend:** React, Next.js, Tailwind CSS, shadcn
-- **Backend:** Node.js, Express.js, PostgresSQL,Prisma
-- **Database:** MongoDB
-- **Authentication:** JWT, bcrypt
-- **Payment:** Cash on Delivery (COD)
-- **Other Tools:** React Hot Toast, Framer Motion, Lucide Icons
 
 ---
 
 ## Features
 
-### Public Features
-- Browse all available medicines
-- Search and filter by category, price, manufacturer
-- View detailed medicine information
+### Public
+- Browse all available services
+- Search and filter by category, price, or location
+- View detailed service information
 
-### Customer Features
-- Register and login as a customer
-- Add medicines to cart
-- Place orders with shipping address (Cash on Delivery)
-- Track order status
-- Leave reviews after ordering
-- Manage user profile
+### Customer
+- Register/Login
+- Book services
+- Online payment via  Stripe
+- Track booking status
+- View booking history
+- Manage profile
 
-### Seller Features
-- Register and login as a seller
-- Add, edit, and remove medicines
-- Manage stock levels
-- View incoming orders
-- Update order status
-
-### Admin Features
-- View all users (customers and sellers)
-- Manage user status (ban/unban)
-- View all medicines and orders
-- Manage categories
-
----
-
-## Pages & Routes
-
-### Public Routes
-| Route         | Page             | Description                  |
-|---------------|-----------------|------------------------------|
-| `/`           | Home            | Hero section, categories, featured medicines |
-| `/shop`       | Shop            | Browse all medicines with filters |
-| `/shop/:id`   | Medicine Details| View detailed info, add to cart |
-| `/login`      | Login           | Login form                  |
-| `/register`   | Register        | Registration form           |
-
-### Customer Routes (Private)
-| Route         | Page             | Description                  |
-|---------------|-----------------|------------------------------|
-| `/cart`       | Cart             | View cart items             |
-| `/checkout`   | Checkout         | Shipping address            |
-| `/orders`     | My Orders        | Order history               |
-| `/orders/:id` | Order Details    | View items, status          |
-| `/profile`    | Profile          | Edit user info              |
-
-### Seller Routes (Private)
-| Route                 | Page       | Description                 |
-|-----------------------|-----------|-----------------------------|
-| `/seller/dashboard`   | Dashboard | Orders overview, stats      |
-| `/seller/medicines`   | Inventory | Manage medicines            |
-| `/seller/orders`      | Orders    | Update order status         |
-
-### Admin Routes (Private)
-| Route                  | Page       | Description                |
-|------------------------|-----------|----------------------------|
-| `/admin`               | Dashboard | Platform statistics         |
-| `/admin/users`         | Users     | Manage users               |
-| `/admin/orders`        | Orders    | View all orders            |
-| `/admin/categories`    | Categories| Manage categories          |
-
----
-
-## Database Tables
-- **Users:** Store user information and authentication details
-- **Categories:** Medicine categories
-- **Medicines:** Product inventory (linked to seller)
-- **Orders:** Customer orders with items and status
-- **Reviews:** Customer reviews for medicines
-
-
-
----
-
-## API Endpoints
-
-### Authentication
-| Method | Endpoint             | Description           |
-|--------|---------------------|---------------------|
-| POST   | `/api/auth/register` | Register new user   |
-| POST   | `/api/auth/login`    | Login user          |
-| GET    | `/api/auth/me`       | Get current user    |
-
-### Medicines (Public)
-| Method | Endpoint             | Description                  |
-|--------|---------------------|------------------------------|
-| GET    | `/api/medicines`    | Get all medicines with filters |
-| GET    | `/api/medicines/:id`| Get medicine details         |
-| GET    | `/api/categories`   | Get all categories           |
-
-### Orders
-| Method | Endpoint             | Description                  |
-|--------|---------------------|------------------------------|
-| POST   | `/api/orders`        | Create new order             |
-| GET    | `/api/orders`        | Get user's orders            |
-| GET    | `/api/orders/:id`    | Get order details            |
-
-### Seller Management
-| Method | Endpoint                     | Description             |
-|--------|------------------------------|------------------------|
-| POST   | `/api/seller/medicines`      | Add medicine           |
-| PUT    | `/api/seller/medicines/:id`  | Update medicine        |
-| DELETE | `/api/seller/medicines/:id`  | Remove medicine        |
-| GET    | `/api/seller/orders`          | Get seller's orders    |
-| PATCH  | `/api/seller/orders/:id`      | Update order status    |
+### Provider
+- Register/Login
+- Add/Edit/Remove services
+- Manage availability
+- View incoming bookings
+- Update booking status
 
 ### Admin
-| Method | Endpoint                     | Description             |
-|--------|------------------------------|------------------------|
-| GET    | `/api/admin/users`           | Get all users           |
-| PATCH  | `/api/admin/users/:id`       | Update user status      |
+- Manage all users
+- Ban/unban providers
+- Manage service categories
+- View and manage all bookings
 
 ---
 
-## Installation & Setup
+## Technologies Used
 
+- **Frontend:** Next.js, Tailwind CSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** PostgreSQL, Prisma ORM  
+- **Authentication:** JWT / BetterAuth  
+- **Payment Gateways:**  Stripe  
+- **Deployment:** Vercel (frontend) / Vercel (backend)
+
+---
+
+## Setup Instructions
+
+### 1. Clone the repository
 ```bash
-# Clone the repository
-git clone <https://github.com/TarekNexus/PharmaPlus-client>
-cd PharmaPlus-client
-
-# Install dependencies
-npm install
-
-#create a .env 
-them follow .example.env
-# Run the development server
-npm run dev
+git clone https://github.com/TarekNexus/Repairo-client
+cd repairo
+create .env and follor example.env
