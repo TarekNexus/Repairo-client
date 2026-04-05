@@ -40,7 +40,7 @@ export const adminUserService = {
             "Content-Type": "application/json",
             Cookie: cookieStore.toString(),
           },
-        }
+        },
       );
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
@@ -53,14 +53,17 @@ export const adminUserService = {
 
   updateUserRole: async (id: string, role: string, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/admin/users/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/admin/users/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          body: JSON.stringify({ role }),
         },
-        body: JSON.stringify({ role }),
-      });
+      );
       return await response.json();
     } catch (error) {
       console.error("Error updating role:", error);
@@ -70,10 +73,13 @@ export const adminUserService = {
 
   banUser: async (id: string, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/admin/users/ban/${id}`, {
-        method: "PATCH",
-        headers: { Cookie: cookieStore.toString() },
-      });
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/admin/users/ban/${id}`,
+        {
+          method: "PATCH",
+          headers: { Cookie: cookieStore.toString() },
+        },
+      );
       return await response.json();
     } catch (error) {
       console.error("Error banning user:", error);
@@ -83,10 +89,13 @@ export const adminUserService = {
 
   toggleBanUser: async (id: string, cookieStore: any) => {
     try {
-      const res = await fetch(`${NEXT_PUBLIC_API_URL}/api/admin/users/ban/${id}`, {
-        method: "PATCH",
-        headers: { Cookie: cookieStore.toString() },
-      });
+      const res = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/admin/users/ban/${id}`,
+        {
+          method: "PATCH",
+          headers: { Cookie: cookieStore.toString() },
+        },
+      );
       return await res.json();
     } catch (error) {
       console.error("Toggle ban error:", error);
@@ -115,14 +124,17 @@ export const adminUserService = {
 
   createServiceProvider: async (payload: ServiceInput, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
       return await response.json();
     } catch (error) {
       console.error("Error creating service:", error);
@@ -130,16 +142,23 @@ export const adminUserService = {
     }
   },
 
-  updateServiceProvider: async (id: string, payload: ServiceInput, cookieStore: any) => {
+  updateServiceProvider: async (
+    id: string,
+    payload: ServiceInput,
+    cookieStore: any,
+  ) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: cookieStore.toString(),
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookieStore.toString(),
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
       return await response.json();
     } catch (error) {
       console.error("Error updating service:", error);
@@ -149,10 +168,13 @@ export const adminUserService = {
 
   deleteServiceProvider: async (id: string, cookieStore: any) => {
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`, {
-        method: "DELETE",
-        headers: { Cookie: cookieStore.toString() },
-      });
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/provider/services/${id}`,
+        {
+          method: "DELETE",
+          headers: { Cookie: cookieStore.toString() },
+        },
+      );
       return await response.json();
     } catch (error) {
       console.error("Error deleting service:", error);
