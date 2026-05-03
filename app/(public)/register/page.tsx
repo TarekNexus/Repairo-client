@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-// import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
@@ -92,20 +92,20 @@ export default function RegisterPage() {
     if (file) handleImageUpload(file);
   };
 
-  // const handleGoogleRegister = async () => {
-  //   try {
-  //     toast.loading("Redirecting to Google...");
-  //     const data = await authClient.signIn.social({
-  //       provider: "google",
-  //       // callbackURL: "http://localhost:3000",
-  //       callbackURL: "https://pharma-plus-client.vercel.app",
-  //     });
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.error(err);
-  //     toast.error("Google registration failed!");
-  //   }
-  // };
+  const handleGoogleRegister = async () => {
+    try {
+      toast.loading("Redirecting to Google...");
+      const data = await authClient.signIn.social({
+        provider: "google",
+        // callbackURL: "http://localhost:3000",
+        callbackURL: "http://localhost:3000",
+      });
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+      toast.error("Google registration failed!");
+    }
+  };
 
   return (
     <section className="relative mb-2 p-4 min-h-screen rounded-b-[30px] mx-auto flex items-center justify-center  overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
@@ -232,14 +232,14 @@ export default function RegisterPage() {
         </form>
 
         {/* Divider */}
-        {/* <div className="flex items-center my-5">
+        <div className="flex items-center my-5">
           <hr className="flex-1 border-gray-300" />
           <span className="mx-3 text-gray-500 font-inter">or</span>
           <hr className="flex-1 border-gray-300" />
-        </div> */}
+        </div>
 
         {/* Google Signup */}
-        {/* <button
+        <button
           onClick={handleGoogleRegister}
           disabled={isSubmitting}
           className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:shadow-md transition"
@@ -248,7 +248,7 @@ export default function RegisterPage() {
           <span className="font-satoshi font-semibold text-gray-700">
             {isSubmitting ? "Redirecting..." : "Continue with Google"}
           </span>
-        </button> */}
+        </button>
 
         <p className="text-center text-gray-500 mt-6 font-inter">
           Already have an account?{" "}

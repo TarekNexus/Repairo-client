@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-// import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
@@ -19,7 +19,7 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
-  // const [googleLoading, setGoogleLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     const loginToast = toast.loading("Logging in...");
@@ -43,24 +43,24 @@ export default function LoginPage() {
     }
   };
 
-  // const handleGoogleLogin = async () => {
-  //   setGoogleLoading(true);
-  //   const googleToast = toast.loading("Redirecting to Google...");
-  //   try {
-  //     const data = await authClient.signIn.social({
-  //       provider: "google",
-  //       // callbackURL: "http://localhost:3000",
-  //       callbackURL: "https://repairo-client.vercel.app",
-  //     });
-  //     console.log(data);
-  //     toast.dismiss(googleToast);
-  //   } catch (err) {
-  //     console.error(err);
-  //     toast.error("Google login failed!", { id: googleToast });
-  //   } finally {
-  //     setGoogleLoading(false);
-  //   }
-  // };
+  const handleGoogleLogin = async () => {
+    setGoogleLoading(true);
+    const googleToast = toast.loading("Redirecting to Google...");
+    try {
+      const data = await authClient.signIn.social({
+        provider: "google",
+        // callbackURL: "http://localhost:3000",
+        callbackURL: "http://localhost:3000",
+      });
+      console.log(data);
+      toast.dismiss(googleToast);
+    } catch (err) {
+      console.error(err);
+      toast.error("Google login failed!", { id: googleToast });
+    } finally {
+      setGoogleLoading(false);
+    }
+  };
 
   return (
     <section className="relative md:mb-5  p-4 min-h-screen  mx-auto flex items-center justify-center rounded-b-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
@@ -183,14 +183,14 @@ export default function LoginPage() {
         </form>
 
         {/* Divider */}
-        {/* <div className="flex items-center my-5">
+        <div className="flex items-center my-5">
           <hr className="flex-1 border-gray-300" />
           <span className="mx-3 text-gray-500 font-inter">or</span>
           <hr className="flex-1 border-gray-300" />
-        </div> */}
+        </div>
 
         {/* Google Login */}
-        {/* <button
+        <button
           onClick={handleGoogleLogin}
           disabled={googleLoading}
           className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:shadow-md transition"
@@ -199,7 +199,7 @@ export default function LoginPage() {
           <span className="font-satoshi font-semibold text-gray-700">
             {googleLoading ? "Redirecting..." : "Login with Google"}
           </span>
-        </button> */}
+        </button>
 
         {/* Register Link */}
         <p className="text-center text-gray-500 mt-6 font-inter">

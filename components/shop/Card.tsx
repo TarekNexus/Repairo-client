@@ -19,7 +19,7 @@ export default function Card({ services, categories }: Props) {
   // modal
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-  const itemsPerPage = 9;
+  const itemsPerPage = 12;
 
   const filteredServices = useMemo(() => {
     return services.filter((service) => {
@@ -112,7 +112,7 @@ export default function Card({ services, categories }: Props) {
 
         {/* Services Grid */}
         {currentServices.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {currentServices.map((service) => (
               <div
                 key={service.id}
