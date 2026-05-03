@@ -144,7 +144,7 @@ export default function RegisterPage() {
               placeholder="John Doe"
               disabled={isSubmitting}
               {...register("name", { required: "Name is required" })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.name && (
               <span className="text-red-500 text-sm">
@@ -161,7 +161,7 @@ export default function RegisterPage() {
               placeholder="john.doe@example.com"
               disabled={isSubmitting}
               {...register("email", { required: "Email is required" })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.email && (
               <span className="text-red-500 text-sm">
@@ -184,7 +184,7 @@ export default function RegisterPage() {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className={`border px-4 py-2 font-satoshi rounded-lg focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
+              className={`border px-4 py-2 font-satoshi rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#5ce1e6]"}`}
             />
             {errors.password && (
               <span className="text-red-500 text-sm">
