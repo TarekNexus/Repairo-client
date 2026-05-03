@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+
 type FormValues = {
   email: string;
   password: string;
@@ -17,10 +18,20 @@ export default function LoginPage() {
   const {
     register,
     handleSubmit,
+    setValue, // ✅ added
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
+
   const [googleLoading, setGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  // ✅ Demo Login Function
+  const handleDemoLogin = () => {
+    setValue("email", "admin@gmail.com");
+    setValue("password", "admin@admin");
+    toast.success("Demo credentials filled!");
+  };
+
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     const loginToast = toast.loading("Logging in...");
     try {
@@ -49,7 +60,6 @@ export default function LoginPage() {
     try {
       const data = await authClient.signIn.social({
         provider: "google",
-        // callbackURL: "http://localhost:3000",
         callbackURL: "https://repairo-client.vercel.app",
       });
       console.log(data);
@@ -64,7 +74,6 @@ export default function LoginPage() {
 
   return (
     <section className="relative md:mb-5  p-4 min-h-screen  mx-auto flex items-center justify-center rounded-b-[30px] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.25)]">
-      {/* Toast container */}
       <Toaster position="top-right" />
 
       {/* Background */}
@@ -93,6 +102,15 @@ export default function LoginPage() {
         <p className="text-center text-gray-600 font-satoshi mb-6">
           Enter your credentials
         </p>
+
+        {/* ✅ Demo Login Button */}
+        <button
+          type="button"
+          onClick={handleDemoLogin}
+          className="w-full mb-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold"
+        >
+          Demo Login (Auto Fill)
+        </button>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Email */}
@@ -136,7 +154,6 @@ export default function LoginPage() {
                   : "border-gray-300 focus:ring-[#5ce1e6]"
               }`}
             />
-            {/* Show/Hide Password Icon */}
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -154,7 +171,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#00aeff] hover:bg-[#008fcc] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md  transition-all disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full bg-[#00aeff] hover:bg-[#008fcc] mt-2 text-white font-bold font-satoshi py-2 rounded-lg shadow-md transition-all disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isSubmitting && (
               <svg
@@ -182,14 +199,12 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-5">
           <hr className="flex-1 border-gray-300" />
           <span className="mx-3 text-gray-500 font-inter">or</span>
           <hr className="flex-1 border-gray-300" />
         </div>
 
-        {/* Google Login */}
         <button
           onClick={handleGoogleLogin}
           disabled={googleLoading}
@@ -201,7 +216,6 @@ export default function LoginPage() {
           </span>
         </button>
 
-        {/* Register Link */}
         <p className="text-center text-gray-500 mt-6 font-inter">
           Don’t have an account?{" "}
           <a
