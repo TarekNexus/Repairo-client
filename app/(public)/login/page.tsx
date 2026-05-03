@@ -121,7 +121,7 @@ export default function LoginPage() {
               placeholder="you@example.com"
               disabled={isSubmitting}
               {...register("email", { required: "Email is required" })}
-              className={`border px-4 py-2 rounded-lg focus:outline-none placeholder-gray-500 focus:ring-2 focus:border-[#5ce1e6] ${
+              className={`border px-4 py-2 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-[#5ce1e6] ${
                 errors.email
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-[#5ce1e6]"
@@ -148,7 +148,7 @@ export default function LoginPage() {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className={`border px-4 py-2 rounded-lg w-full placeholder-gray-500 focus:outline-none focus:ring-2 pr-10 ${
+              className={`border px-4 py-2 rounded-lg w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 pr-10 ${
                 errors.password
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-[#5ce1e6]"
