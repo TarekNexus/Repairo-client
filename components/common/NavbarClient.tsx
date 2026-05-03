@@ -41,6 +41,7 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
+    { href: "/about", label: "About" },
   ];
 
   const isActive = (href: string) => pathname === href;

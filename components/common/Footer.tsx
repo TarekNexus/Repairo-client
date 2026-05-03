@@ -60,10 +60,7 @@ const Footer = () => {
         <div className="lg:w-1/2 flex flex-col items-center lg:items-end justify-between">
           {/* Navigation Links */}
           <div className="flex gap-16 mb-12">
-            <div className="space-y-5 text-center md:text-right">
             
-             
-            </div>
             <div className="space-y-5 text-center md:text-left">
               <Link href="/" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
                 HOME
@@ -76,6 +73,9 @@ const Footer = () => {
               </Link>
                <Link href="/contact" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
                 CONTACT
+              </Link>
+               <Link href="/about" className="block text-[#FFFFFF] text-lg font-medium font-geist hover:text-[#00aeff] transition-colors">
+                ABOUT US
               </Link>
             </div>
           </div>
