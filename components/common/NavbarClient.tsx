@@ -145,6 +145,22 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
                 </Link>
               </li>
             )}
+            {user?.role.toLowerCase() === "customer" && (
+              <li>
+                <Link
+                  href="/customer/profile"
+                  className={cn(
+                    "font-medium",
+                    isActive("/customer/profile")
+                      ? "text-[#5ce1e6]"
+                      : "text-black"
+                  )}
+                >
+                  Profile
+                </Link>
+              </li>
+            )}
+            
           </ul>
         </nav>
       </div>
@@ -154,7 +170,7 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0000004D]">
+              <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00aeff]">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={user.image} />
                   <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
@@ -174,13 +190,13 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
 
               <DropdownMenuItem asChild>
                 <Link href={getDashboardPath()}>
-                  <UserIcon className="mr-2 h-4 w-4" />
+                  <UserIcon className="mr-2 text-[#00aeff] h-4 w-4" />
                   Dashboard
                 </Link>
               </DropdownMenuItem>
 
               <DropdownMenuItem onClick={handleLogout}>
-                <LogOut className="mr-2 h-4 w-4" />
+                <LogOut className="mr-2 h-4 w-4 text-[#00aeff] " />
                 Logout
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -233,14 +249,27 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
         className={cn(
           "py-2 px-3 rounded-md flex items-center",
           isActive("/customer")
-            ? "bg-[#5ce1e6]/20 border-l-4 border-[#00aeff] font-semibold"
+            ? "bg-[#00aeff] border-l-4 border-[#00aeff] font-semibold"
             : "hover:bg-gray-100"
         )}
       >
         Dashboard
       </Link>
     )}
-
+  {user?.role.toLowerCase() === "customer" && (
+      <Link
+        href="/customer/profile"
+        onClick={() => setMobileMenuOpen(false)}
+        className={cn(
+          "py-2 px-3 rounded-md flex items-center",
+          isActive("/customer/profile")
+            ? "bg-[#00aeff] border-l-4 border-[#00aeff] font-semibold"
+            : "hover:bg-gray-100"
+        )}
+      >
+        Profile
+      </Link>
+    )}
     {/* Divider */}
     <div className="border-t my-2" />
 
@@ -271,7 +300,7 @@ const NavbarClient = ({ user }: NavbarClientProps) => {
       >
         <button className="w-full py-2 rounded-md bg-[#00aeff] text-white font-semibold flex items-center justify-center gap-2">
           Login
-          <ArrowUpRight className="w-5 h-5" />
+          <ArrowUpRight className="w-5 h-5 text-black" />
         </button>
       </Link>
     )}

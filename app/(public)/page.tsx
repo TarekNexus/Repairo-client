@@ -1,8 +1,11 @@
 import FaqSection from "@/components/home/FAQSection";
 import Features from "@/components/home/Features";
 import Banner from "@/components/home/Hero";
+import HowRepairoWorks from "@/components/home/HowRepairoWorks";
+import Join from "@/components/home/join";
 import MostPopular from "@/components/home/MostPopular";
 import Testimonials from "@/components/home/Testimonials";
+import ValuesSection from "@/components/home/Values";
 // import Sticky from '@/components/home/Sticky';
 import React from "react";
 
@@ -16,7 +19,10 @@ const page = async () => {
         <MostPopular />
         {/* <Sticky></Sticky> */}
         <Features />
+        <HowRepairoWorks></HowRepairoWorks>
         <Testimonials></Testimonials>
+        <ValuesSection></ValuesSection>
+              <Join></Join>
         <FaqSection></FaqSection>
       </div>
     </div>
